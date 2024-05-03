@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Link from 'next/link';
 import styles from './Header.module.css';
 
@@ -29,5 +30,17 @@ export default function Header() {
         </div>
       </div>
     </header>
+=======
+import Image from "next/image";
+import styles from "./page.module.css";
+
+export default function Header() {
+  return (
+    <main className={styles.main}>
+      
+        
+
+    </main>
+>>>>>>> 3b736a214bb2a99a6d97b8ab3ffb4e3ae27921f4
   );
 }
