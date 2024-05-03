@@ -1,0 +1,61 @@
+.accountNav {
+    border-bottom: 1px solid rgb(147, 151, 173, 0.3);
+    padding-bottom: 2rem;
+
+   
+
+    .navImage {
+        padding-top: 3.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+
+        
+    }
+
+    .navNameInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+
+        h2 {
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .navButtons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-right: 1rem;
+        gap: .2rem;
+
+       
+
+        Link {
+            display: flex;
+            justify-content: center;
+            font-weight: 700;
+            width: auto;
+
+
+           
+        }
+
+        .btn-gray {
+            background-color: white;
+
+
+            &:hover {
+                background-color: #6366F1;
+            }
+        }
+    }
+}
