@@ -1,4 +1,4 @@
-#signIn {
+#signUp {
     padding: 5rem 0;
 }
 
@@ -7,18 +7,18 @@
     justify-content: center;
 }
 
-.signInForm {
+.signUpForm {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.signUp {
+.signIn {
     color: var(--color-theme);
     text-decoration: none;
     margin-left: 5px;
 }
-.signUp:hover {
+.signIn:hover {
     color: var(--color-gray-800);
 }
 
@@ -34,6 +34,7 @@
     font-size: 2rem;
 }
 
+
 .inputGroup {
     width: 100%;
     display: flex;
@@ -42,30 +43,20 @@
     font-weight: 700;
 }
 
-.btnTheme {
-    margin-top: 15px;
-}
-
-.line {
+.checkboxGroup {
     display: flex;
-    justify-content: center;
-    align-self: center;
     align-items: center;
-    margin-top: 30px;
-
-    border-top: 1px solid var(--color-gray-400);
-    width: 80%;
+    gap: 5px;
+    margin: 10px 0;
 }
 
-.text {
-    display: flex;
-    justify-content: center;
+.terms {
+    text-decoration: none;
+}
+.terms:hover {
+    color: var(--color-gray-800);
+}
+
+.btnTheme {
     margin-top: 10px;
-    font-size: 14px;
-}
-
-.social {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
 }

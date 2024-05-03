@@ -19,8 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://kit.fontawesome.com/41c8b474e2.css" crossOrigin="anonymous" />
-        
+        <link rel="stylesheet" href="https://kit.fontawesome.com/41c8b474e2.css" crossOrigin="anonymous" />      
       </head>
       <body>
       <div className="wrapper">

@@ -11,7 +11,7 @@ export default function Header() {
           <Link href="/">Overview</Link>
           <Link href="/">Features</Link>
           <Link href="/courses">Courses</Link>
-          <Link href="Contact">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </nav>
 
         <div id="theme-switch" className="btn-switch">
@@ -24,7 +24,7 @@ export default function Header() {
         </div>
 
         <div className={styles.accountButtons}>
-          <Link className="btn btn-gray" href="/signin"><i className="btn-icon fa-regular fa-arrow-right-to-bracket"></i> Sign in</Link>
+          <Link className="btn btn-gray" href="/"><i className="btn-icon fa-regular fa-arrow-right-to-bracket"></i> Sign in</Link>
           <Link className="btn btn-theme" href="/signup"><i className="btn-icon fa-regular fa-user"></i> Sign up</Link>
         </div>
       </div>
