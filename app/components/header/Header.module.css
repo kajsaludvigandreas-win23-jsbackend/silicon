@@ -1,5 +1,5 @@
 .header {
-    margin-top: 10px;
+    padding: 10px 0;
 }
 
 .container {
@@ -16,6 +16,25 @@
 
 .navLinks {
     grid-area: nav;
+    display: flex;
+    gap: 20px;
+}
+
+.navLinks a {
+    color: var(--color-gray-800);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+.navLinks a:hover {
+    color: var(--color-theme);
+}
+
+.switch {
+    grid-area: switch;
+}
+
+.accountButtons {
+    grid-area: btns;
     display: flex;
     gap: 20px;
 }

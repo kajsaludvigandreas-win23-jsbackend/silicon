@@ -18,13 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-<<<<<<< HEAD
       <head>
         <link rel="stylesheet" href="https://kit.fontawesome.com/41c8b474e2.css" crossOrigin="anonymous" />
         
       </head>
-=======
->>>>>>> 3b736a214bb2a99a6d97b8ab3ffb4e3ae27921f4
       <body>
       <div className="wrapper">
         <Header />
