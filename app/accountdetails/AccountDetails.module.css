@@ -6,36 +6,36 @@
   display: flex;
   flex-direction: row;
 }
-#account .accountDetails {
+#account .container .accountDetails {
   display: flex;
   flex-direction: column;
 }
-#account .accountDetails .basic h3 {
+#account .container .accountDetails .basic h3 {
   color: var(--color-purple);
 }
-#account .accountDetails .basic .basicContent {
+#account .container .accountDetails .basic .basicContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "first last" "email email" "phone phone" "bio bio";
   gap: 0.5rem;
 }
-#account .accountDetails .basic .basicContent .basicGroup {
+#account .container .accountDetails .basic .basicContent .basicGroup {
   display: flex;
   flex-direction: column;
   color: var(--color-gray-900);
   font-weight: 700;
   position: relative;
 }
-#account .accountDetails .basic .basicContent .basicGroup .opt {
+#account .container .accountDetails .basic .basicContent .basicGroup .opt {
   display: flex;
   gap: 0.2rem;
 }
-#account .accountDetails .basic .basicContent .basicGroup .opt p {
+#account .container .accountDetails .basic .basicContent .basicGroup .opt p {
   margin: 0;
   color: var(--color-gray-600);
   font-weight: 400;
 }
-#account .accountDetails .basic .basicContent .basicGroup span.field-validation-error {
+#account .container .accountDetails .basic .basicContent .basicGroup span.field-validation-error {
   color: var(--color-danger);
   font-weight: 500;
   opacity: 0.7;
@@ -43,36 +43,36 @@
   top: 0;
   right: 0;
 }
-#account .accountDetails .basic .basicContent .basicGroup input {
+#account .container .accountDetails .basic .basicContent .basicGroup input {
   border: 1px solid var(--color-gray-400);
   padding: 0.4rem;
   border-radius: 5px;
 }
-#account .accountDetails .basic .basicContent .basicGroup input.input-validation-error {
+#account .container .accountDetails .basic .basicContent .basicGroup input.input-validation-error {
   border-color: var(--color-danger);
 }
-#account .accountDetails .basic .basicContent .basicGroup .bioInput {
+#account .container .accountDetails .basic .basicContent .basicGroup .bioInput {
   padding: 0.4rem;
   border: 1px solid var(--color-gray-400);
   border-radius: 5px;
   margin-bottom: 1rem;
 }
-#account .accountDetails .basic .basicContent #basicFirstname {
+#account .container .accountDetails .basic .basicContent #basicFirstname {
   grid-area: first;
 }
-#account .accountDetails .basic .basicContent #basicLastname {
+#account .container .accountDetails .basic .basicContent #basicLastname {
   grid-area: last;
 }
-#account .accountDetails .basic .basicContent #basicEmail {
+#account .container .accountDetails .basic .basicContent #basicEmail {
   grid-area: email;
 }
-#account .accountDetails .basic .basicContent #basicPhone {
+#account .container .accountDetails .basic .basicContent #basicPhone {
   grid-area: phone;
 }
-#account .accountDetails .basic .basicContent #basic-bio {
+#account .container .accountDetails .basic .basicContent #basic-bio {
   grid-area: bio;
 }
-#account .accountDetails .basic .basic-buttons {
+#account .container .accountDetails .basic .basic-buttons {
   display: flex;
   gap: 1rem;
   padding-bottom: 2rem;
