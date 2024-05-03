@@ -1,0 +1,21 @@
+.header {
+    margin-top: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: "logo nav switch btns";
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.navLinks {
+    grid-area: nav;
+    display: flex;
+    gap: 20px;
+}
