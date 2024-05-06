@@ -10,16 +10,18 @@
   .accountDetails {
       display: flex;
       flex-direction: column;
-      padding-left: 2rem;
       padding-top: 5rem;
       width: 100%;
+      padding-left: 2rem;
+  }
+  .basic{
+    padding-left: 2rem;
   }
           .title {
               color: var(--color-theme); 
           }
 
           .basicContent {
-           
               display: grid;
               grid-template-columns: 1fr 1fr;
               grid-template-areas:
@@ -35,6 +37,26 @@
                   font-weight: 700;
                   position: relative;
               }
+             .basicFirstname {
+                grid-area: first;
+            }
+
+            .basicLastname {
+                grid-area: last;
+            }
+
+           .basicEmail {
+                grid-area: email;
+            }
+
+            .basicPhone {
+                grid-area: phone;
+            }
+
+          .basicBio {
+                grid-area: bio;
+                
+            }
                   .opt {
                       display: flex;
                       gap: .2rem;
@@ -59,32 +81,9 @@
                       border: 1px solid var(--color-gray-400);
                       border-radius: 5px;
                       margin-bottom: 1rem;
-                    
-                     
+                      width: 100%;
+                     height: 100px;
                   }
-              
-
-              #basicFirstname {
-                  grid-area: first;
-              }
-
-              #basicLastname {
-                  grid-area: last;
-              }
-
-              #basicEmail {
-                  grid-area: email;
-              }
-
-              #basicPhone {
-                  grid-area: phone;
-              }
-
-              #basicBio {
-                  grid-area: bio;
-                  width: 100%;
-              }
-          
 
           .basicButtons {
               display: flex;
@@ -92,6 +91,60 @@
               padding-bottom: 2rem;
               border-bottom: 1px solid rgba(147, 151, 173, 0.3);
           }
+
+          .addressInfo{
+              display: flex;
+              flex-direction: column;
+              padding-left: 2rem;
+              padding-top: 2rem;
+              width: 100%;
+          }
+
+          .addressContent{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "line1 line1"
+                                  "line2 line2"
+                                  "postal city";
+            gap: .5rem;
+          }
+
+          .addressGroup {
+            display: flex;
+            flex-direction: column;
+            color: var(--color-gray-900);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .addressLine1{
+          grid-area: line1;
+        }
+
+        .addressLine2{
+          grid-area: line2;
+        }
+
+        .postalCode{
+          grid-area: postal;
+        }
+
+        .city{
+          grid-area: city;
+        }
+
+        .addressButtons {
+          display: flex;
+          gap: 1rem;
+          padding-top: 1rem;
+          padding-bottom: 2rem;
+          
+      }
+      .inputAddress {
+        border: 1px solid var(--color-gray-400);
+        padding: .4rem;
+        border-radius: 5px;
+    }
       
   
 
