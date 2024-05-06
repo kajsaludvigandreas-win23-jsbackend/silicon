@@ -26,28 +26,30 @@ export default function AccountSecurity() {
                                 <label htmlFor="confirmPassword">Confirm new password</label>
                                 <input className={styles.inputPassword} type="text" id="confirmPassword" />
                             </div>
-
                         </div>
+
                         <div className={styles.securityButtons}>
                             <button className="btn-gray btn" type="reset">Cancel</button>
                             <button className="btn-theme btn" type="submit">Change Password</button>
                         </div>
                     </form>
+
                     <hr/>
+
                     <form className={styles.delete}>
                         <h4 className={styles.deleteTitle}>Delete Account</h4>
                         <p className="description">When you delete your account, your public profile will be deactivated immediately.
                          If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
                         <div className={styles.checkboxGroup}>
-                        <input type="checkbox" id="confirmDelete" />
-                        <label htmlFor="checkboxDelete">Yes, I want to delete my account</label>
-                    </div> 
-                    <div className={styles.deleteButton}>
+                            <input type="checkbox" id="confirmDelete" />
+                            <label htmlFor="checkboxDelete">Yes, I want to delete my account</label>
+                        </div> 
                         
-                        <button className="btn-danger btn" type="submit">Delete</button>
-                </div>
+                        <div className={styles.deleteButton}>
+                            
+                            <button className="btn-danger btn" type="submit">Delete</button>
+                        </div>
                     </form>
-
                 </div>
             </div>
         </section>

@@ -1,7 +1,6 @@
 .accountNav {
 
     padding-bottom: 2rem;
-    margin-top: 5rem;
     padding-right: 3rem;
     border-right: 1px solid var(--color-gray-400);
     min-width: 30%; 
@@ -11,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
   }
   .navImage {
       padding-top: 1.5rem; 
