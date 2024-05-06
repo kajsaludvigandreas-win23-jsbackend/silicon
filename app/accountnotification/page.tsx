@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styles from './accountNotification.module.css'
 import AccountNav from '../components/accountSideNav/accountSideNav';
+import ToggleSwitchDarkMode from '../components/toggleSwitchDarkMode/toggleSwitchDarkMode';
+import ToggleSwitchSubscribe from '../components/toggleSwitchSubscribe/toggleswitchSubscribe';
 
 export default function AccountSecurity() {
     return (
@@ -12,45 +14,32 @@ export default function AccountSecurity() {
                     <form method='post' noValidate>
                         <h2 className={styles.title}>Notifications</h2>
 
-                        <div id="formEmail" className={styles.noteificationEmail}>
+                        <div id="formEmail" className={styles.notificationEmail}>
                             <label htmlFor="email">Preferred email for notifications</label>
-                            <input className="input" type="email" id="email" />
+                            <input className="input" type="email" id="email" placeholder='example@gmail.com' />
                         </div>
-
-                        <div id="subscribe" className={styles.btnSwitch}>
-
-                            <div className={styles.switchBox}>
-                                <input type="checkbox" className={styles.switch} />
-                            <label htmlFor="subscribe" className={`${styles.slider} ${styles.round}`}></label>
-                            </div>
+                        
+                        <div className={styles.subscribe}>
+                          <ToggleSwitchSubscribe/>  
                             <div className={styles.buttontext}>
-                                <h6>Subscribe to newsletter</h6>
+                                <h4>Subscribe to newsletter</h4>
                                 <p>Nec, posuere non felis duis massa vitae aliquet interdum scelerisque. Neque ullamcorper</p>
                             </div>
-
                         </div>
-                        <div id="theme-switch" className={styles.btnSwitch}>
 
-                            <div className={styles.btnSwitch}>
-                               
-                                <div className={styles.switchBox}>
-                                    <input type="checkbox" className={styles.switch} />
-                                    <label htmlFor="switch" className={`${styles.slider} ${styles.round}`}>
-                                    </label>
-                                    </div>
-                                </div>
-
+                        <div className={styles.darkMode}>
+                        <ToggleSwitchDarkMode />
                             <div className={styles.buttontext}>
-                                <h6>Use dark mode theme in application</h6>
+                                <h4>Use dark mode theme in application</h4>
                                 <p>Tortor massa porttitor enim tristique neque fermentum sed</p>
                             </div>
-                        </div>
-                        <div className={styles.addressButtons}>
+                        </div>    
+                        
+                        <div className={styles.notificationsButtons}>
                             <button className="btn-gray btn" type="reset">Cancel</button>
                             <button className="btn-theme btn" type="submit">Save Changes</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </section>
