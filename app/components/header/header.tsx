@@ -15,14 +15,7 @@ export default function Header() {
           <Link href="/contact">Contact</Link>
         </nav>
 
-        <div id="theme-switch" className="btn-switch">
-          <label>Light</label>
-          <label className="switch" htmlFor="switch-mode">
-            <input type="checkbox" id="switch-mode" />
-            <span className="slider round"></span>
-          </label>
-          <label>Dark</label>
-        </div>
+       
 
         <div className={styles.accountButtons}>
           <Link className="btn btn-gray" href="/"><i className="btn-icon fa-regular fa-arrow-right-to-bracket"></i> Sign in</Link>
