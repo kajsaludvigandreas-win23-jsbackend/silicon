@@ -1,0 +1,65 @@
+.accountNav {
+
+  padding-bottom: 2rem;
+  margin-top: 5rem;
+    padding-right: 3rem;
+    border-right: 1px solid var(--color-gray-400); 
+}
+
+  .imageDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navImage {
+      padding-top: 1.5rem; 
+      margin-right: 1rem;     
+  }
+
+  .navNameInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+  }
+  .navNameInfo .h5 {
+          margin: 0;
+          color: var(--color-gray-900);
+      }
+
+      .navNameInfo .name {
+          margin: 0;
+          margin-bottom: 1.5rem;
+      }
+  
+
+  .navButtons {
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+      gap: .2rem;
+      
+  }
+
+  .navButtons .sideNavLinks {
+          display: flex;
+          justify-content: start;
+          font-weight: 700;
+          width: auto;
+          text-decoration: none;
+          text-align: left;
+
+
+         
+      }
+
+      .btn-gray {
+          background-color: white;
+
+      }
+      .btn-gray &:hover {
+              background-color: #6366F1;
+          }
+      
+  
