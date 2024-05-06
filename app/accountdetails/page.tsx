@@ -8,28 +8,28 @@ export default function AccountDetails() {
             <div className={`container ${styles.container}`}>
             <AccountNav/>
             <div className={styles.accountDetails}>
-                <h1>Details</h1>
+                <h1>Account Details</h1>
                 <form className={styles.basic} action='/accountdetails'method='post'>
-                <h3>Basic Info</h3>
+                <h3 className={styles.title}>Account Info</h3>
                 <div className={styles.basicContent}>
                     <div id='basicFirstName' className={styles.basicGroup}>
                         <label htmlFor="firstName">First Name</label>
-                        <input className={styles.input} type="text" id="firstName" />
+                        <input className={styles.inputBasic} type="text" id="firstName" />
                     </div>
 
                     <div id='basicLastName' className={styles.basicGroup}>
                         <label htmlFor="lastName">Last Name</label>
-                        <input className={styles.input} type="text" id="lastName" />
+                        <input className={styles.inputBasic} type="text" id="lastName" />
                     </div>
 
                     <div id="basicEmail" className= {styles.basicGroup}>
                         <label htmlFor="email">Email</label>
-                        <input className={styles.input} type="email" id="email" />
+                        <input className={styles.inputBasic} type="email" id="email" />
                     </div>
 
                     <div id='basicPhone' className={styles.basicGroup}>
                         <label htmlFor="phone">Phone Number</label>
-                        <input className={styles.input} type="text" id='phone' />
+                        <input className={styles.inputBasic} type="text" id='phone' />
                     </div>
 
                     <div id="basicBio" className={styles.basicGroup}>
@@ -41,8 +41,8 @@ export default function AccountDetails() {
                         </div>
                 </div>
                 <div className={styles.basicButtons}>
-                    <button className="btn-gray" type="reset">Cancel</button>
-                    <button className="btn-theme" type="submit">Save Changes</button>
+                    <button className="btn-gray btn" type="reset">Cancel</button>
+                    <button className="btn-theme btn" type="submit">Save Changes</button>
                 </div>
                 </form>
             </div>

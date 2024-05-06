@@ -1,43 +1,65 @@
 .accountNav {
-  border-bottom: 1px solid rgba(147, 151, 173, 0.3);
+
   padding-bottom: 2rem;
+  margin-top: 5rem;
+    padding-right: 3rem;
+    border-right: 1px solid var(--color-gray-400); 
 }
-.accountNav .navImage {
-  padding-top: 3.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-}
-.accountNav .navNameInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-}
-.accountNav .navNameInfo h2 {
-  margin: 0;
-}
-.accountNav .navNameInfo p {
-  margin: 0;
-  margin-bottom: 1.5rem;
-}
-.accountNav .navButtons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-right: 1rem;
-  gap: 0.2rem;
-}
-.accountNav .navButtons Link {
-  display: flex;
-  justify-content: center;
-  font-weight: 700;
-  width: auto;
-}
-.accountNav .navButtons .btn-gray {
-  background-color: white;
-}
-.accountNav .navButtons .btn-gray:hover {
-  background-color: #6366F1;
-}
+
+  .imageDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navImage {
+      padding-top: 1.5rem; 
+      margin-right: 1rem;     
+  }
+
+  .navNameInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+  }
+  .navNameInfo .h5 {
+          margin: 0;
+          color: var(--color-gray-900);
+      }
+
+      .navNameInfo .name {
+          margin: 0;
+          margin-bottom: 1.5rem;
+      }
+  
+
+  .navButtons {
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+      gap: .2rem;
+      
+  }
+
+  .navButtons .sideNavLinks {
+          display: flex;
+          justify-content: start;
+          font-weight: 700;
+          width: auto;
+          text-decoration: none;
+          text-align: left;
+
+
+         
+      }
+
+      .btn-gray {
+          background-color: white;
+
+      }
+      .btn-gray &:hover {
+              background-color: #6366F1;
+          }
+      
+  
