@@ -1,0 +1,101 @@
+#adminAddCourse {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .addCourseDetails {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    width: 100%;
+    padding-left: 2rem;
+  }
+  .accountDetails h1 {
+    padding-left: 2rem;
+  }
+  
+  .titlebutton {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 0 2rem 2rem;
+  }
+
+  .basic{
+    padding-left: 2rem;
+  }
+  
+  .title {
+    color: var(--color-theme); 
+  }
+  
+  .basicContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "title title"
+        "author author" 
+        "price discount"
+        "description description";
+    gap: .5rem;
+  }
+  
+  .basicGroup {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-gray-900);
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .basicTitle {
+    grid-area: title;
+  }
+  
+  .basicAuthor {
+    grid-area: author;
+  }
+  
+  .basicPrice {
+    grid-area: price;
+  }
+  
+  .basicDiscountPrice {
+    grid-area: discount;
+  }
+  
+  .basicDescription {
+    grid-area: description;
+    
+  }                  
+  
+  .inputBasic {
+    border: 1px solid var(--color-gray-400);
+    padding: .4rem;
+    border-radius: 5px;
+  }               
+                    
+  .descriptionInput {
+    padding: .4rem;
+    border: 1px solid var(--color-gray-400);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 100px;
+  }
+  
+  .descriptionInput::placeholder {
+    margin-left: 1rem;
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  .basicButtons {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }

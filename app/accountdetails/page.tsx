@@ -8,7 +8,10 @@ export default function AccountDetails() {
             <div className={`container ${styles.container}`}>
                 <AccountNav/>
                 <div className={styles.accountDetails}>
-                    <h1>Account Details</h1>
+                    <div className={styles.titlebutton}>
+                        <h1>Account Details</h1>
+                        <Link className="btn btn-theme" href="/adminportal"><i className="fa-regular fa-lock btn-icon"></i>Admin</Link>
+                    </div>
                     <form className={styles.basic} action='/accountdetails'method='post'>
                         <h3 className={styles.title}>Account Info</h3>
                         <div className={styles.basicContent}>
