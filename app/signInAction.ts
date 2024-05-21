@@ -18,7 +18,7 @@ export default async function signInAction(currentState: any, formData: FormData
         const res = await fetch('https://accountprovider-lak.azurewebsites.net/api/SignIn?code=0OIEKeG7i6XX7OT4FNqU1k7sBr9BjBuhHAYNtoKDXz-RAzFu-wVULQ%3D%3D', {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(signInFormData)
         })

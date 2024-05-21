@@ -1,7 +1,3 @@
-#singleCourse {
-
-}
-
 .backgroundImage {
     position: absolute;
     z-index: -1;
@@ -11,17 +7,13 @@
 
 .container {
     color: var(--color-gray-200);
-
+    padding-bottom: 20px;
 }
 
 .icons {
     display: flex;
     gap: 10px;
-    margin: 70px 0 0 0;
-}
-
-.content {
-
+    margin: 100px 0 0 0;
 }
 
 .content h1 {
@@ -35,14 +27,14 @@
 
 .comments {
     display: flex;
-    justify-content: last baseline;
+    justify-content: first baseline;
     align-items: baseline;
     gap: 20px;                
     margin: 50px 0 0 0;
 }
 .comments p {
     font-size: 12px;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 .grades {
@@ -59,5 +51,176 @@
 }
 
 .left {
-    border-right: 1px solid var(--color-gray-200);
+    border-right: 1px solid var(--color-gray-400);
+}
+
+.right {
+    border-right: 1px solid var(--color-gray-400);
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 140px 0 110px 0;
+}
+
+.titleName {
+    margin: 15px 0 0 0;
+}
+
+.createdBy {
+    font-weight: 800;
+    margin: 0;
+}
+
+.authorName {
+    margin: 0 0 20px 0;
+}
+
+.courseDescription {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 20px 0;
+    color: var(--color-gray-900);
+}
+
+.contentLeft {
+    margin: 0;
+}
+
+.description {
+    max-width: 746px;
+}
+.contentLeft h3 {
+    margin: 40px 0 0 0;
+}
+
+.points {
+    margin: 20px 0 0 0;
+}
+
+.point {
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    gap: 10px;
+}
+.point p {
+    margin: 0 0 10px 0;
+}
+.point i {
+    color: var(--color-theme);
+}
+
+.contentRight {
+    border: 1px solid #E2E5F1;
+    border-radius: 6px;
+    width: 416px;
+    height: 458px;
+    padding: 0 30px;
+    margin-top: 90px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.box {
+    padding: 0 0 0 35px;
+}
+.box h4 {
+    margin: 40px 0 0px 0;
+}
+
+.content {
+    margin: 25px 0 40px 0;
+}
+
+.contentInfo {
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 10px 0;
+}
+.contentInfo p {
+    margin: 0;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px 0;
+}
+.price .gray {
+    font-size: 20px;
+    color: #9397AD;
+    text-decoration: line-through;
+}
+
+.programDetails {
+    color: var(--color-gray-900);
+}
+
+.body {
+    display: flex;
+    gap: 25px;
+    margin: 50px 0 0 0;
+}
+
+.lineOne {
+    margin-left: 40px;
+    height: 65px;
+    width: 1px;
+    border-right: 1px solid var(--color-gray-300);
+}
+.lineTwo {
+    margin-left: 40px;
+    height: 87px;
+    width: 1px;
+    border-right: 1px solid var(--color-gray-300);
+}
+.lineThree {
+    margin-left: 40px;
+    height: 90px;
+    width: 1px;
+    border-right: 1px solid var(--color-gray-300);
+}
+.lineFour {
+    margin-left: 40px;
+    height: 68px;
+    width: 1px;
+    border-right: 1px solid var(--color-gray-300);
+}
+.lineFive {
+    margin-left: 40px;
+    height: 115px;
+    width: 1px;
+    border-right: 1px solid var(--color-gray-300);
+}
+
+.circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    border: 10px solid #F3F6FF;
+}
+.circle p {
+    font-weight: 800;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.infos {
+    margin: 0 0 50px 0;
+}
+.infos h4 {
+    margin-top: 0;
+}
+.infos p {
+    max-width: 636px;
 }
