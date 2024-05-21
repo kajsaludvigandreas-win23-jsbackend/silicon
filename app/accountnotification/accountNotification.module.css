@@ -1,0 +1,72 @@
+.notifications{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.accountNotifications {
+    padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    width: 100%;
+}
+
+.notificationEmail {
+    display: flex;
+    flex-direction: column;
+}
+.notificationEmail label {
+    font-weight: 500;
+}
+
+.notificationEmail input {
+    border: 1px solid var(--color-gray-400);
+    padding: .8rem;
+    border-radius: 5px;
+    width: 50%;
+    margin-top: .2rem;
+}
+
+.subscribe {
+    margin-top: 3rem;
+    display: flex;
+    
+    
+    
+}
+
+.darkMode {
+    display: flex;   
+    margin-top: 2rem;
+}
+
+.buttontext{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttontext h4 {
+    margin: 0;
+    color: var(--color-gray-900);
+    margin-left: 1rem;
+
+}
+.buttontext p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--color-gray-500);
+    margin-left: 1rem;
+    margin-top: .5rem;
+}
+
+
+.notificationsButtons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 10rem;
+}

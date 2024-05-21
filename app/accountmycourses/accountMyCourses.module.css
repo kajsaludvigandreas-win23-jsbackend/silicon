@@ -1,0 +1,25 @@
+.myCourses {
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row
+}
+
+.savedCoursesContent {
+    padding-top: 2rem;
+    padding-left: 5rem;
+    width: 100%;
+}
+
+.savedCoursesHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.savedCoursesHeader .white {
+    background-color: white;
+}

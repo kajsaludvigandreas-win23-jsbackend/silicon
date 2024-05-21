@@ -1,0 +1,73 @@
+.security {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.accountSecurity {
+    padding-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    width: 100%;
+    
+}
+.securityForm{
+    border-bottom: 1px solid var(--color-gray-400);
+    padding-bottom: 2rem;
+}
+.subtitle {
+    color: var(--color-theme);
+}
+
+.securityContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "password none"
+        "new confirm";
+        gap:0.5rem;
+}
+.securityGroup {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-gray-900);
+    font-weight: 700;
+    position: relative;
+}
+
+.inputPassword{
+    border: 1px solid var(--color-gray-400);
+                      padding: .4rem;
+                      border-radius: 5px;
+}
+.password{
+    grid-area: password;
+}
+
+.newPassword{
+    grid-area: new;
+}
+
+.confirm{
+    grid-area:confirm;
+}
+
+.securityButtons{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display:flex;
+    gap:0.5rem;
+}
+
+.deleteButton{
+    padding-top:1rem;
+}
+.deleteTitle{
+    color: var(--color-theme);
+}
