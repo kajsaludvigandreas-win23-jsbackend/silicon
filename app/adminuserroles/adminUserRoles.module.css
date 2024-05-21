@@ -1,0 +1,50 @@
+#adminUserRoles {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .adminDetails {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    width: 100%;
+    padding-left: 2rem;
+  }
+  .accountDetails h1 {
+    padding-left: 2rem;
+  }
+  
+  .titlebutton {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 2rem;
+  }
+
+  .user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+  }
+
+  .name {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .roleButtons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
