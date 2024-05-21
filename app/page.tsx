@@ -1,11 +1,29 @@
+'use client';
+
 import Link from "next/link";
 import styles from "./page.module.css";
+import { useFormState } from "react-dom";
+import signInAction from "./signInAction";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
+  const [signInForm, setSignInForm] = useFormState(signInAction, {success: false})
+  const router = useRouter()
+
+  useEffect(() => {
+    if (signInForm.success) {
+      router.push('/accountdetails')
+    }
+  }, [signInForm])
+
+
   return (
     <section id="signIn">
+      {signInForm?.error && <div className="error">{signInForm?.error}</div>}
+
       <div className={`container ${styles.container}`}>
-        <form className={styles.signInForm} action="/signin" method="post">
+        <form action={setSignInForm} className={styles.signInForm} noValidate>
 
           <div className={styles.content}>
             <h1 className={styles.title}>Sign in</h1>
@@ -20,22 +38,12 @@ export default function Home() {
                 <input className="input" type="password" id="password" name="password" />
               </div>
 
+              <div className={styles.checkboxGroup}>
+                <input type="checkbox" name="isPersistent" />
+                <label>Remember me</label>
+              </div>
+
               <button className={`btn btn-theme ${styles.btnTheme}`} type="submit">Sign in</button>
-          </div>
-
-          <div className={styles.line}></div>
-
-          <p className={styles.text}>Or sign in with:</p>
-
-          <div className={styles.social}>
-            <a href="/auth/facebook" className="btn btn-gray">
-              <i className="btn-icon fab fa-facebook-f"></i>
-              Facebook
-            </a>
-            <a href="/auth/google" className="btn btn-gray">
-              <i className="btn-icon fab fa-google"></i>
-              Google
-            </a>
           </div>
         </form>
       </div>
