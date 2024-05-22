@@ -29,7 +29,7 @@ export default function Header() {
               <div className="profile">
                 <div className="profile-image">
                   <Link href="/accountdetails">
-                    <img src="/images/avatarBig.svg" alt="Profile" />
+                    <img src="/images/smallProfileAvatar.svg" alt="Profile" />
                   </Link>
                 </div>
               </div>

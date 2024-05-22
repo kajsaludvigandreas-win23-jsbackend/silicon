@@ -1,45 +1,50 @@
 'use server';
-
+ 
 import { cookies } from "next/headers";
-
+ 
 type ActionTypes = {
     success: boolean,
-    error?: string | undefined
+    error?: string | undefined,
+   
 }
-
-export default async function signInAction(currentState: any, formData: FormData) : Promise<ActionTypes> {
-    const email = formData.get('email')
-    const password = formData.get('password')
-    const isPersistent = formData.get('isPersistent')
-
-    const signInFormData = {email, password, isPersistent: isPersistent ? isPersistent : false}
-
+ 
+export default async function signInAction(currentState: any, formData: FormData): Promise<ActionTypes> {
+    const email = formData.get('email');
+    const password = formData.get('password');
+    const isPersistent = formData.get('isPersistent');
+ 
+    const signInFormData = { email, password, isPersistent: isPersistent ? isPersistent : false };
+    console.log('SignIn form data:', signInFormData);
+ 
     try {
         const res = await fetch('https://accountprovider-lak.azurewebsites.net/api/SignIn?code=0OIEKeG7i6XX7OT4FNqU1k7sBr9BjBuhHAYNtoKDXz-RAzFu-wVULQ%3D%3D', {
             method: 'post',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(signInFormData)
-        })
-
-        if (res.status === 200) {
-            const result = await res.json()
-
-            cookies().set('Authorization', result.token, {
+        });
+ 
+        console.log('Response status:', res.status);
+ 
+        const result = await res.text();
+        console.log('API response (text):', result);
+ 
+        if (res.status === 200 && result) {
+            cookies().set('Authorization', result, {
                 secure: true,
                 httpOnly: true,
-                expires: Date.now() + 24 * 60 * 60 * 1000 * 1,
+                expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
                 path: '/',
-                sameSite: 'strict',
-            })
-            return {success: true}
+                sameSite: 'strict'
+            });
+            console.log('Cookie set:', result);
+            return { success: true };
         } else {
-            const result = await res.json()
-            return {success: false, error: result.error}
+            return { success: false, error: "Invalid credentials" };
         }
-    }
-    catch {
-        return {success: false, error: "Unable to sign in right now. Please try again later.."}
+    } catch (error) {
+        console.error('Error during sign in:', error);
+        return { success: false, error: "Unable to sign in right now. Please try again later." };
     }
 }

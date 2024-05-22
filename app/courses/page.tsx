@@ -24,7 +24,7 @@ export default function Courses() {
 
                 <div className={styles.content}>
                     <div className={styles.box}>
-                        <a className={styles.link} href=''>
+                        <a className={styles.link} href='/singlecourse'>
                             <img className={styles.bestseller} src="/images/bestseller.svg" />
 
                             <form asp-controller="Course" asp-action="SaveCourse" method="post">

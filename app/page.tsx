@@ -44,6 +44,13 @@ export default function Home() {
               </div>
 
               <button className={`btn btn-theme ${styles.btnTheme}`} type="submit">Sign in</button>
+
+              <div className={styles.line}></div>
+              
+              <div className={styles.verifyText}>
+                <p className={styles.text}>If you already have a verification code?</p>
+                <Link href="/verifyaccount" className={styles.text}>click here...</Link>
+              </div>
           </div>
         </form>
       </div>

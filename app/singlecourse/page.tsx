@@ -109,8 +109,8 @@ export default function SingleCourse() {
 
                             <div className={styles.price}>
                                 <h2 className="black">$28.99</h2>
-                                <p className="gray">$49.00</p>
-                                <p className="black">$79.88</p>
+                                <p className={styles.priceGray}>$49.00</p>
+                                <h2 className="black">$79.88</h2>
                             </div>
 
                             <form id="join-course-form" method="post" asp-controller="Account" asp-action="SubCourse">

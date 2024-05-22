@@ -57,11 +57,19 @@
     width: 80%;
 }
 
+.verifyText {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 3px;
+}
+
 .text {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 12px;
+    text-decoration: none;
 }
 
 .social {
