@@ -20,12 +20,21 @@ export default function Header() {
         }
 
         <nav className={styles.navLinks}>
-          <Link href="/">Overview</Link>
 
           {isSignedIn ? 
-          (<Link href="/courses">Courses</Link>)
+          (
+            <>
+              <Link href="/accountdetails">Overview</Link>
+              <Link href="/courses">Courses</Link>
+            </>
+          )
           :
-          (<Link href="/">Features</Link>)
+          (
+            <>
+              <Link href="/">Overview</Link>
+              <Link href="/">Features</Link>
+            </>
+          )
           }
 
           <Link href="/contact">Contact</Link>
