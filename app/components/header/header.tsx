@@ -9,7 +9,15 @@ export default function Header() {
     <header className={styles.header}>
       
       <div className={`container ${styles.container}`}>
-        <Link href="/"><img src="/images/solid.svg" alt="Silicon" /></Link>
+        {isSignedIn ? 
+          (
+            <Link href="/accountdetails"><img src="/images/solid.svg" alt="Silicon" /></Link>
+          )
+          :
+          (
+            <Link href="/"><img src="/images/solid.svg" alt="Silicon" /></Link>
+          )
+        }
 
         <nav className={styles.navLinks}>
           <Link href="/">Overview</Link>

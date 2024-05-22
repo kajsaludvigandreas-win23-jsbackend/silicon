@@ -15,8 +15,6 @@ export async function middleware(request: NextRequest) {
         })
         if (res.status === 200)
             NextResponse.redirect(request.url)
-        else 
-            return NextResponse.redirect(new URL("/", request.url))
     }
     catch (error) {
         return NextResponse.redirect(new URL("/", request.url))
