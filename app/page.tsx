@@ -49,7 +49,7 @@ export default function Home() {
               
               <div className={styles.verifyText}>
                 <p className={styles.text}>If you already have a verification code?</p>
-                <Link href="/verifyaccount" className={styles.text}>click here...</Link>
+                <Link href="/verifyaccount" className={styles.link}>click here...</Link>
               </div>
           </div>
         </form>

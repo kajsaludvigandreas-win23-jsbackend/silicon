@@ -72,6 +72,12 @@
     text-decoration: none;
 }
 
+.link {
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--color-theme);
+}
+
 .social {
     display: flex;
     justify-content: center;
