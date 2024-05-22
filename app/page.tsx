@@ -48,7 +48,7 @@ export default function Home() {
               <div className={styles.line}></div>
               
               <div className={styles.verifyText}>
-                <p className={styles.text}>If you already have a verification code?</p>
+                <p className={styles.text}>Already have a verification code?</p>
                 <Link href="/verifyaccount" className={styles.link}>click here...</Link>
               </div>
           </div>
