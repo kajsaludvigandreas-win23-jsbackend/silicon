@@ -1,0 +1,74 @@
+#adminSignIn {
+    padding: 5rem 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 5rem;
+}
+
+.signUp {
+    color: var(--color-theme);
+    text-decoration: none;
+    margin-left: 5px;
+}
+.signUp:hover {
+    color: var(--color-gray-800);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.title {
+    margin: 20px 0 10px 0;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.inputGroup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-gray-800);
+    font-weight: 700;
+}
+
+.btnTheme {
+    margin-top: 15px;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    margin-top: 30px;
+
+    border-top: 1px solid var(--color-gray-400);
+    width: 80%;
+}
+
+.verifyText {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 12px;
+    text-decoration: none;
+}

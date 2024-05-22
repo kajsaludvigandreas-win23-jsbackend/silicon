@@ -10,7 +10,7 @@ export default function AdminPortal() {
                 <div className={styles.adminDetails}>
                     <div className={styles.titlebutton}>
                         <h1>Welcome to the Admin Portal!</h1>
-                        <Link className="btn btn-theme" href="/logoutadmin"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</Link>
+                        <Link className="btn btn-theme" href="/signoutadmin"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</Link>
                     </div>
 
                     <div className={styles.content}>

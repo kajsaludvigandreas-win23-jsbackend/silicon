@@ -10,7 +10,7 @@ export default function AccountDetails() {
                 <div className={styles.accountDetails}>
                     <div className={styles.titlebutton}>
                         <h1>Account Details</h1>
-                        <Link className="btn btn-theme" href="/adminportal"><i className="fa-regular fa-lock btn-icon"></i>Admin</Link>
+                        <Link className="btn btn-theme" href="/adminsignin"><i className="fa-regular fa-lock btn-icon"></i>Admin</Link>
                     </div>
                     <form className={styles.basic} action='/accountdetails'method='post'>
                         <h3 className={styles.title}>Account Info</h3>
