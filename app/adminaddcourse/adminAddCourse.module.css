@@ -41,7 +41,16 @@
         "title title"
         "author author" 
         "price discount"
-        "description description";
+        "ingress ingress"
+        "description description"
+        "image imageHeader"
+        "isBestSeller isDigital"
+        "categories categories"
+        "btitle btitle"
+        "hours hours"
+        "likes likesInPercent"
+        "starRating reviews"
+        "programDetails programDetails";
     gap: .5rem;
   }
   
@@ -72,13 +81,68 @@
   .basicDescription {
     grid-area: description;
     
-  }                  
+  }          
+  
+  .basicImageUri {
+    grid-area: image;
+  }
+
+  .basicImageHeaderUri {
+    grid-area: imageHeader;
+  }
+
+  .basicIsBestSeller {
+    grid-area: isBestSeller;
+  }
+
+  .basicIsDigital {
+    grid-area: isDigital;
+  }
+
+  .basicCategories{
+    grid-area: categories;
+  }
+
+  .basicIngress {
+    grid-area: ingress;
+  }
+
+  .basicStarRating {
+    grid-area: starRating;
+  }
+
+  .basicReviews {
+    grid-area: reviews;
+  }
+
+  .basicLikesInPercent {
+    grid-area: likesInPercent;
+  }
+
+  .basicLikes {
+    grid-area: likes;
+  }
+
+  .basicHours {
+    grid-area: hours;
+  }
+
+  .programDetailsDescription {
+    grid-area: programDetails;
+  }
   
   .inputBasic {
     border: 1px solid var(--color-gray-400);
     padding: .4rem;
     border-radius: 5px;
-  }               
+  }      
+  
+  .checkboxGroup {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+ }
                     
   .descriptionInput {
     padding: .4rem;
@@ -97,5 +161,5 @@
   .basicButtons {
     display: flex;
     gap: 1rem;
-    padding-bottom: 2rem;
+    padding: 2rem 0;
   }

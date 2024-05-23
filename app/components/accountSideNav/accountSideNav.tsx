@@ -1,7 +1,23 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './accountSideNav.module.css'
+import signOutAction from '@/app/signOutAction';
+import { useRouter } from 'next/navigation';
 
 export default function AccountNav() {
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        const result = await signOutAction();
+        if (result.success) {
+            router.push('/'); // Omdirigera till hemsidan
+        } else {
+            // Hantera fel om det behövs
+            console.error('Logout failed:', result.error);
+        }
+    };
+
     return ( 
         <div className={styles.accountNav}>
         <div className={styles.imageDiv}>
@@ -18,7 +34,7 @@ export default function AccountNav() {
             <Link href="/accountmycourses" className={`btn-gray btn ${styles.sideNavLinks}`}><i className="fa-sharp fa-regular fa-cart-shopping btn-icon"></i>My Courses</Link>
             <Link href="/accountnotification" className={`btn-gray btn ${styles.sideNavLinks}`}><i className="fa-sharp fa-regular fa-bell btn-icon"></i>Notifications</Link>
             <Link href="/accountmessages" className={`btn-gray btn ${styles.sideNavLinks}`}><i className="fa-regular fa-messages btn-icon"></i>Messages</Link>
-            <Link href="logout" className={`btn-gray btn ${styles.sideNavLinks}`}><i className="fa-light fa-right-from-bracket btn-icon"></i>Sign Out</Link>
+            <button onClick={handleLogout} className={`btn-gray btn ${styles.sideNavLinks}`}><i className="fa-light fa-right-from-bracket btn-icon"></i>Sign Out</button>
         </div>
     </div>
     );
