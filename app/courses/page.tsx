@@ -84,7 +84,7 @@ const Courses: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading">Loading... <span className="loader"></span></div>;
   }
 
   if (error) {
