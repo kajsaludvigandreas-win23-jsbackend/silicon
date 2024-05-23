@@ -1,10 +1,29 @@
-import Link from 'next/link';
-import styles from './accountNotification.module.css'
+"use client";
+
+import { useEffect, useState } from 'react';
+import styles from './accountNotification.module.css';
 import AccountNav from '../components/accountSideNav/accountSideNav';
 import ToggleSwitchDarkMode from '../components/toggleSwitchDarkMode/toggleSwitchDarkMode';
 import ToggleSwitchSubscribe from '../components/toggleSwitchSubscribe/toggleswitchSubscribe';
 
-export default function AccountNotifiaction() {
+export default function AccountNotification() {
+    const [email, setEmail] = useState('');
+
+    useEffect(() => {
+        const getEmailFromCookies = () => {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === 'UserEmail') {
+                    setEmail(decodeURIComponent(value));
+                    break;
+                }
+            }
+        };
+
+        getEmailFromCookies();
+    }, []);
+
     return (
         <section className={styles.notifications}>
             <div className={`container ${styles.container}`}>
@@ -16,7 +35,7 @@ export default function AccountNotifiaction() {
 
                         <div id="formEmail" className={styles.notificationEmail}>
                             <label htmlFor="email">Email for notifications</label>
-                            <input className="input" type="email" id="email" placeholder='example@gmail.com' />
+                            <input className="input" type="email" id="email" value={email} readOnly />
                         </div>
                         
                         <div className={styles.subscribe}>
@@ -43,5 +62,6 @@ export default function AccountNotifiaction() {
                 </div>
             </div>
         </section>
-    )
-};
+    );
+}
+
