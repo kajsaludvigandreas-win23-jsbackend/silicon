@@ -84,11 +84,11 @@ const Courses: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="courseError">Error: {error}</div>;
   }
 
   return (
