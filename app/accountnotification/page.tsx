@@ -4,7 +4,7 @@ import AccountNav from '../components/accountSideNav/accountSideNav';
 import ToggleSwitchDarkMode from '../components/toggleSwitchDarkMode/toggleSwitchDarkMode';
 import ToggleSwitchSubscribe from '../components/toggleSwitchSubscribe/toggleswitchSubscribe';
 
-export default function AccountSecurity() {
+export default function AccountNotifiaction() {
     return (
         <section className={styles.notifications}>
             <div className={`container ${styles.container}`}>
@@ -15,7 +15,7 @@ export default function AccountSecurity() {
                         <h2 className={styles.title}>Notifications</h2>
 
                         <div id="formEmail" className={styles.notificationEmail}>
-                            <label htmlFor="email">Preferred email for notifications</label>
+                            <label htmlFor="email">Email for notifications</label>
                             <input className="input" type="email" id="email" placeholder='example@gmail.com' />
                         </div>
                         

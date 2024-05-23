@@ -24,8 +24,9 @@ export default function Header() {
           {isSignedIn ? 
           (
             <>
-              <Link href="/accountdetails">Overview</Link>
+              <Link href="/accountnotification">Notifications</Link>
               <Link href="/courses">Courses</Link>
+              <Link href="/accountmessages">Messages</Link>
             </>
           )
           :
@@ -33,11 +34,10 @@ export default function Header() {
             <>
               <Link href="/">Overview</Link>
               <Link href="/">Features</Link>
+              <Link href="/contact">Contact</Link>
             </>
           )
           }
-
-          <Link href="/contact">Contact</Link>
         </nav>
 
         <div className={styles.accountButtons}>
