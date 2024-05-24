@@ -55,7 +55,7 @@ const SingleCourse: React.FC = () => {
         const fetchCourse = async (id: string) => {
             try {
                 const query = `
-             
+            query GetCourseById($id: String!) {
             getCourseById(id: $id) {
               id
               imageUri
@@ -88,7 +88,7 @@ const SingleCourse: React.FC = () => {
                 }
               }
             }
-          
+          }
         `;
 
                 const variables = { id };
@@ -97,9 +97,9 @@ const SingleCourse: React.FC = () => {
                 const res = await fetch('https://courseprovider-lak.azurewebsites.net/api/GraphQL?code=HmZBexEQKfIbFPqBV0zHpJEyxeaz4FT8twRto_LWBCckAzFuIhjUpw%3D%3D', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query, variables })
-                });
-                
+                    body: JSON.stringify({ query, variables })                   
+                });   
+
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
@@ -108,8 +108,8 @@ const SingleCourse: React.FC = () => {
                 if (result.errors) {
                     throw new Error(result.errors.map((err: any) => err.message).join(', '));
                 }
-
-                setCourse(result.data.getCourse);
+                console.log(result);
+                setCourse(result.data.getCourseById);
             } catch (err) {
                 if (err instanceof Error) {
                     setError(err.message);
@@ -125,11 +125,10 @@ const SingleCourse: React.FC = () => {
         const id = params.get('id');
 
         if (id) {
-            fetchCourse(id);                
+            fetchCourse(id);
         } else {
             setLoading(false);
-        }   
-       
+        }        
     }, [router]);
 
     if (loading) {

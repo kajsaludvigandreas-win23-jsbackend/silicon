@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from './courses.module.css';
+import Link from 'next/link';
 
 interface Author {
   name: string;
@@ -115,7 +116,7 @@ const Courses: React.FC = () => {
         <div className={styles.content}>
           {courses.map((course) => (
             <div key={course.id} className={styles.box}>
-              <a className={styles.link} href={`/singlecourse?id=${course.id}`}>
+              <Link className={styles.link} href={`/singlecourse?id=${course.id}`}>
                 {course.isBestSeller && <img className={styles.bestseller} src="/images/bestseller.svg" alt="Bestseller" />}
                 
                 <img className={styles.image} src="/images/courseImageOne.svg" alt={course.title} />
@@ -147,7 +148,7 @@ const Courses: React.FC = () => {
                     <p className={styles.p}><i className="fa-regular fa-thumbs-up"></i> {course.likesInPercent}% ({course.likes})</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
