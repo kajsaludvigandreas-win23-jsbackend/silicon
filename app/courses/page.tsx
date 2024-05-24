@@ -53,7 +53,7 @@ const Courses: React.FC = () => {
           }
         `;
 
-        const res = await fetch('http://localhost:7207/api/graphql', {
+        const res = await fetch('https://courseprovider-lak.azurewebsites.net/api/GraphQL?code=HmZBexEQKfIbFPqBV0zHpJEyxeaz4FT8twRto_LWBCckAzFuIhjUpw%3D%3D', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ query })
