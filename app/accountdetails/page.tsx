@@ -38,22 +38,22 @@ export default function AccountDetails() {
                         <div className={styles.basicContent}>
                             <div className={`${styles.basicFirstName} ${styles.basicGroup}`}>
                                 <label htmlFor="firstName">First Name</label>
-                                <input className={styles.inputBasic} type="text" id="firstName" placeholder='Enter your first name' />
+                                <input className="input" type="text" id="firstName" placeholder='Enter your first name' />
                             </div>
 
                             <div className={`${styles.basicLastName} ${styles.basicGroup}`}>
                                 <label htmlFor="lastName">Last Name</label>
-                                <input className={styles.inputBasic} type="text" id="lastName" placeholder='Enter your last name' />
+                                <input className="input" type="text" id="lastName" placeholder='Enter your last name' />
                             </div>
 
                             <div className={`${styles.basicEmail} ${styles.basicGroup}`}>
                                 <label htmlFor="email">Email</label>
-                                <input className={styles.inputBasic} type="email" id="email" value={email} readOnly />
+                                <input className="input" type="email" id="email" value={email} readOnly />
                             </div>
 
                             <div className={`${styles.basicPhone} ${styles.basicGroup}`}>
                                 <label htmlFor="phone">Phone Number</label>
-                                <input className={styles.inputBasic} type="text" id='phone' placeholder='Enter your phone number' />
+                                <input className="input" type="text" id='phone' placeholder='Enter your phone number' />
                             </div>
 
                             <div className={`${styles.basicBio} ${styles.basicGroup}`}>
@@ -75,22 +75,22 @@ export default function AccountDetails() {
                         <div className={styles.addressContent}>
                             <div className={`${styles.addressLine1} ${styles.addressGroup}`}>
                                 <label htmlFor="addressLine1">Address Line 1</label>
-                                <input className={styles.inputAddress} type="text" id="addressLine1" />
+                                <input className="input" type="text" id="addressLine1" />
                             </div>
 
                             <div className={`${styles.addressLine2} ${styles.addressGroup}`}>
                                 <label htmlFor="addressLine2">Address Line 2</label>
-                                <input className={styles.inputAddress} type="text" id="addressLine2" />
+                                <input className="input" type="text" id="addressLine2" />
                             </div>
 
                             <div className={`${styles.postalCode} ${styles.addressGroup}`}>
                                 <label htmlFor="postalCode">Postal Code</label>
-                                <input className={styles.inputAddress} type="text" id="postalCode" />
+                                <input className="input" type="text" id="postalCode" />
                             </div>
 
                             <div className={`${styles.city} ${styles.addressGroup}`}>
                                 <label htmlFor="city">City</label>
-                                <input className={styles.inputAddress} type="text" id='city' />
+                                <input className="input" type="text" id='city' />
                             </div>
                         </div>
                         <div className={styles.addressButtons}>

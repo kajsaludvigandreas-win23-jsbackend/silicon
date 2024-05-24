@@ -14,17 +14,17 @@ export default function AccountSecurity() {
                         <div className={styles.securityContent}>
                             <div className={`${styles.password} ${styles.securityGroup}`}>
                                 <label htmlFor="password">Current password</label>
-                                <input className={styles.inputPassword} type="text" id="password" />
+                                <input className="input" type="text" id="password" />
                             </div>
 
                             <div className={`${styles.newPassword} ${styles.securityGroup}`}>
                                 <label htmlFor="newPassword">New password</label>
-                                <input className={styles.inputPassword} type="text" id="newPassword" />
+                                <input className="input" type="text" id="newPassword" />
                             </div>
 
                             <div className={`${styles.confirm} ${styles.securityGroup}`}>
                                 <label htmlFor="confirmPassword">Confirm new password</label>
-                                <input className={styles.inputPassword} type="text" id="confirmPassword" />
+                                <input className="input" type="text" id="confirmPassword" />
                             </div>
                         </div>
 

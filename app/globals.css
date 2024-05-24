@@ -30,7 +30,47 @@
 }
 
 
-  
+.dark-mode {
+  background: var(--color-gray-900);
+  color: var(--color-white);
+}
+.dark-mode .input {
+  background: var(--color-gray-800);
+  color: var(--color-white);
+}
+.dark-mode .btn {
+  color: var(--color-white);
+}
+.dark-mode .inputBasic {
+  background: var(--color-gray-800);
+  color: var(--color-white);
+}
+.dark-mode textarea {
+  background: var(--color-gray-800);
+  color: var(--color-white);
+}
+.dark-mode label {
+  color: var(--color-white);
+}
+.dark-mode .btn-gray {
+  background: var(--color-gray-800);
+  color: var(--color-white);
+}
+.dark-mode .btn-dangerWhite {
+  background: var(--color-danger);
+  color: var(--color-white);
+}
+.dark-mode .btn-social {
+  background: var(--color-gray-800);
+  color: var(--color-white);
+}
+.dark-mode .h4title {
+  color: var(--color-white);
+}
+.dark-mode .headerlink {
+  color: var(--color-white);
+}
+
 
 
 body {

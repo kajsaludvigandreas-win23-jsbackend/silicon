@@ -41,7 +41,7 @@ export default function AccountNotification() {
                         <div className={styles.subscribe}>
                           <ToggleSwitchSubscribe/>  
                             <div className={styles.buttontext}>
-                                <h4>Subscribe to newsletter</h4>
+                                <h4 className="h4title">Subscribe to newsletter</h4>
                                 <p>Nec, posuere non felis duis massa vitae aliquet interdum scelerisque. Neque ullamcorper</p>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ export default function AccountNotification() {
                         <div className={styles.darkMode}>
                         <ToggleSwitchDarkMode />
                             <div className={styles.buttontext}>
-                                <h4>Use dark mode theme in application</h4>
+                                <h4 className="h4title">Use dark mode theme in application</h4>
                                 <p>Tortor massa porttitor enim tristique neque fermentum sed</p>
                             </div>
                         </div>    

@@ -24,17 +24,17 @@ export default function Header() {
           {isSignedIn ? 
           (
             <>
-              <Link href="/accountnotification">Notifications</Link>
-              <Link href="/courses">Courses</Link>
-              <Link href="/accountmessages">Messages</Link>
+              <Link className="headerlink" href="/accountnotification">Notifications</Link>
+              <Link className="headerlink" href="/courses">Courses</Link>
+              <Link className="headerlink" href="/accountmessages">Messages</Link>
             </>
           )
           :
           (
             <>
-              <Link href="/">Overview</Link>
-              <Link href="/">Features</Link>
-              <Link href="/contact">Contact</Link>
+              <Link className="headerlink" href="/">Overview</Link>
+              <Link className="headerlink" href="/">Features</Link>
+              <Link className="headerlink" href="/contact">Contact</Link>
             </>
           )
           }
