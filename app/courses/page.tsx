@@ -146,8 +146,8 @@ const Courses: React.FC = () => {
                   <div className={styles.line}></div>
 
                   <div className={styles.infoUnder}>
-                    <p className={styles.p}><i className="fa-regular fa-clock"></i> {course.hours} hours</p>
-                    <p className={styles.p}><i className="fa-regular fa-thumbs-up"></i> {course.likesInPercent}% ({course.likes})</p>
+                    <p className={styles.p}><i className="fa-regular fa-clock"></i> {course.hours}</p>
+                    <p className={styles.p}><i className="fa-regular fa-thumbs-up"></i> {course.likesInPercent} ({course.likes})</p>
                   </div>
                 </div>
               </Link>
