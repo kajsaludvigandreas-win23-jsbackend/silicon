@@ -17,6 +17,7 @@ interface Price {
 interface Course {
   id: string;
   isBestSeller: boolean;
+  imageUri : string;
   title: string;
   authors: Author[];
   prices: Price;
@@ -37,6 +38,7 @@ const Courses: React.FC = () => {
           {
             getAllCourses {
               id
+              imageUri
               isBestSeller
               title
               authors {
@@ -119,7 +121,7 @@ const Courses: React.FC = () => {
               <Link className={styles.link} href={`/singlecourse?id=${course.id}`}>
                 {course.isBestSeller && <img className={styles.bestseller} src="/images/bestseller.svg" alt="Bestseller" />}
                 
-                <img className={styles.image} src="/images/courseImageOne.svg" alt={course.title} />
+                <img className={styles.image} src={course.imageUri} alt={course.title} />
 
                 <div className={styles.info}>
                   <h3>{course.title}</h3>

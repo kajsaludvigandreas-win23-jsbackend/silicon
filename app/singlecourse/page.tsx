@@ -146,7 +146,7 @@ const SingleCourse: React.FC = () => {
     return (
         <section id="singleCourse">
             <div>
-                <img className={styles.backgroundImage} src={course.imageHeaderUri} alt="Course Header" />
+                <img className={styles.backgroundImage} src={course.imageUri} alt="Course Header" />
             </div>
 
             <div className={`container ${styles.container}`}>
