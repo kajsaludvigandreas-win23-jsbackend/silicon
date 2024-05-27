@@ -70,6 +70,33 @@
 .dark-mode .headerlink {
   color: var(--color-white);
 }
+.dark-mode .author {
+  color: var(--color-white);
+}
+.dark-mode .h3 {
+  color: var(--color-white);
+}
+.dark-mode .p {
+  color: var(--color-white);
+}
+.dark-mode .i {
+  color: var(--color-white);
+}
+.dark-mode .black {
+  color: var(--color-white);
+}
+.dark-mode .h4 {
+  color: var(--color-white);
+}
+.dark-mode .circle {
+  background-color: var(--color-gray-900);
+  border: 10px solid var(--color-gray-700);
+  color: var(--color-white);
+}
+.dark-mode .loader {
+  border: 5px solid var(--color-white);
+  border-bottom-color: var(--color-theme);
+}
 
 
 

@@ -124,8 +124,8 @@ const Courses: React.FC = () => {
                 <img className={styles.image} src={course.imageUri} alt={course.title} />
 
                 <div className={styles.info}>
-                  <h3>{course.title}</h3>
-                  <p className={styles.author}>By {course.authors.map(author => author.name).join(', ')}</p>
+                  <h3 className='h3'>{course.title}</h3>
+                  <p className={`author ${styles.author}`}>By {course.authors.map(author => author.name).join(', ')}</p>
 
                   <div className={styles.priceDiscount}>
                     {course.prices.discount > 0 ? (
@@ -146,8 +146,8 @@ const Courses: React.FC = () => {
                   <div className={styles.line}></div>
 
                   <div className={styles.infoUnder}>
-                    <p className={styles.p}><i className="fa-regular fa-clock"></i> {course.hours}</p>
-                    <p className={styles.p}><i className="fa-regular fa-thumbs-up"></i> {course.likesInPercent} ({course.likes})</p>
+                    <p className={`p ${styles.p}`}><i className="fa-regular fa-clock icon i"></i> {course.hours}</p>
+                    <p className={`p ${styles.p}`}><i className="fa-regular fa-thumbs-up i"></i> {course.likesInPercent} ({course.likes})</p>
                   </div>
                 </div>
               </Link>

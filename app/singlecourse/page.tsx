@@ -194,7 +194,7 @@ const SingleCourse: React.FC = () => {
                             {course.content.includes.map((point, index) => (
                                 <div className={styles.point} key={index}>
                                     <i className="fa-regular fa-circle-check"></i>
-                                    <p>{point}</p>
+                                    <p className='p'>{point}</p>
                                 </div>
                             ))}
                         </div>
@@ -206,24 +206,24 @@ const SingleCourse: React.FC = () => {
 
                             <div className={styles.content}>
                                 <div className={styles.contentInfo}>
-                                    <i className="fa-solid fa-display"></i>
-                                    <p>{course.hours} hours on-demand video</p>
+                                    <i className="fa-solid fa-display i"></i>
+                                    <p className='p'>{course.hours} hours on-demand video</p>
                                 </div>
                                 <div className={styles.contentInfo}>
-                                    <i className="fa-regular fa-newspaper"></i>
-                                    <p>18 articles</p>
+                                    <i className="fa-regular fa-newspaper i"></i>
+                                    <p className='p'>18 articles</p>
                                 </div>
                                 <div className={styles.contentInfo}>
-                                    <i className="fa-regular fa-download"></i>
-                                    <p>25 downloadable resources</p>
+                                    <i className="fa-regular fa-download i"></i>
+                                    <p className='p'>25 downloadable resources</p>
                                 </div>
                                 <div className={styles.contentInfo}>
-                                    <i className="fa-regular fa-universal-access"></i>
-                                    <p>Full lifetime access</p>
+                                    <i className="fa-regular fa-universal-access i"></i>
+                                    <p className='p'>Full lifetime access</p>
                                 </div>
                                 <div className={styles.contentInfo}>
-                                    <i className="fa-regular fa-trophy"></i>
-                                    <p>Certificate of completion</p>
+                                    <i className="fa-regular fa-trophy i"></i>
+                                    <p className='p'>Certificate of completion</p>
                                 </div>
                             </div>
 
@@ -246,7 +246,7 @@ const SingleCourse: React.FC = () => {
                         <div className={styles.circles}>
                             {course.content.programDetails.map((detail, index) => (
                                 <React.Fragment key={detail.id}>
-                                    <div className={styles.circle}>
+                                    <div className={`circle ${styles.circle}`}>
                                         <p>{index + 1}</p>
                                     </div>
                                     {index < course.content.programDetails.length - 1 && <div className={styles[`line${index + 1}`]}></div>}
@@ -257,8 +257,8 @@ const SingleCourse: React.FC = () => {
                         <div className="content">
                             {course.content.programDetails.map(detail => (
                                 <div className={styles.infos} key={detail.id}>
-                                    <h4>{detail.title}</h4>
-                                    <p>{detail.description}</p>
+                                    <h4 className='h4'>{detail.title}</h4>
+                                    <p className='p'>{detail.description}</p>
                                 </div>
                             ))}
                         </div>
