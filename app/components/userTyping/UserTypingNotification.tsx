@@ -1,17 +1,25 @@
-// 'use client';
-
-// import { useRef, useState } from "react"
-// import { ChatRoom } from "../chatRoom/ChatRoom"
-// import { WaitingRoom } from "../waitingRoom/WaitingRoom"
-// import { HubConnectionBuilder } from "@microsoft/signalr"
+import React from "react"
+import styles from "./userTyping.module.css"
 
 
-
-// export const UserTypingNotification = () => {
+type props = {
+  typingUsers: string[]
+}
 
 
 
-//   return (
 
-//   )
-// }
+
+export default function UserTypingNotification({typingUsers}: props) {
+  return (
+    <div className="typing-indicator">
+      <div className={`container ${styles.container}`}>
+        {typingUsers.map((userName) => ( 
+          <div key={userName}>
+            {userName} is typing...
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

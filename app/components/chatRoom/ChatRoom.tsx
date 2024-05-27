@@ -1,9 +1,11 @@
-import { MessageList } from '../messageList/MessageList'
-import { SendMessageForm } from '../sendMessage/SendMessageForm'
-import { UserTypingNotification } from '../userTyping/UserTypingNotification'
+
 import styles from './ChatRoom.module.css'
 import { Message } from '../../accountmessages/page'
 import { MutableRefObject } from 'react'
+import MessageList from '../messageList/MessageList'
+import SendMessageForm from '../sendMessage/SendMessageForm'
+import UserTypingNotification from '../userTyping/UserTypingNotification'
+
 
 type props = {
   messages: Message[],
