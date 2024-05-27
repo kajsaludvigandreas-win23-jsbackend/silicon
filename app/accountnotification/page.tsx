@@ -8,6 +8,11 @@ import ToggleSwitchSubscribe from '../components/toggleSwitchSubscribe/toggleswi
 
 export default function AccountNotification() {
     const [email, setEmail] = useState('');
+    const [isSubscribed, setIsSubscribed] = useState(() => {
+        
+        const saved = localStorage.getItem('isSubscribed');
+        return saved === 'true';
+    });
 
     useEffect(() => {
         const getEmailFromCookies = () => {
@@ -21,8 +26,49 @@ export default function AccountNotification() {
             }
         };
 
+        const savedSubscription = localStorage.getItem('isSubscribed') === 'true';
+        setIsSubscribed(savedSubscription);
+
         getEmailFromCookies();
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem('isSubscribed', isSubscribed.toString());
+    }, [isSubscribed]);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Kontrollera att email är en sträng och inte falsk
+        if (typeof email !== 'string' || email === '') {
+            alert('Invalid email address.');
+            return;
+        }
+
+        try {
+            const response = await fetch('https://subscriptionprovider-lak.azurewebsites.net/api/Subscribe?code=MFvKPp3nEay7uymmPV2T1Qn_a4UEgo_AJo_92icyNvNZAzFufhBtAQ%3D%3D', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    isSubscribed: isSubscribed
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Server responded with:', errorData);
+                throw new Error(errorData.message || 'Failed to save subscription status');
+            }
+
+            alert('Subscription status updated successfully');
+        } catch (error) {
+            console.error('Error updating subscription status:', error);
+            alert('Failed to update subscription status');
+        }
+    };
 
     return (
         <section className={styles.notifications}>
@@ -30,7 +76,7 @@ export default function AccountNotification() {
                 <AccountNav />
 
                 <div className={styles.accountNotifications}>
-                    <form method='post' noValidate>
+                    <form method='post' noValidate onSubmit={handleSubmit}>
                         <h2 className={styles.title}>Notifications</h2>
 
                         <div id="formEmail" className={styles.notificationEmail}>
@@ -39,7 +85,7 @@ export default function AccountNotification() {
                         </div>
                         
                         <div className={styles.subscribe}>
-                          <ToggleSwitchSubscribe/>  
+                          <ToggleSwitchSubscribe value={isSubscribed} onChange={setIsSubscribed} />  
                             <div className={styles.buttontext}>
                                 <h4 className="h4title">Subscribe to newsletter</h4>
                                 <p>Nec, posuere non felis duis massa vitae aliquet interdum scelerisque. Neque ullamcorper</p>
