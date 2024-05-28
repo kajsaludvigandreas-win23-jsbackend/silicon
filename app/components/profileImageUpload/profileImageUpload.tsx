@@ -1,7 +1,8 @@
 'use client';
 
+import styles from './profileImageUpload.module.css';
 import { useUser } from '@/app/context/UserContext';
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC, useRef } from 'react';
 
 interface ProfileImageUploadProps {
   onUploadSuccess: (newImageUri: string) => void;
@@ -12,6 +13,7 @@ const ProfileImageUpload: FC<ProfileImageUploadProps> = ({ onUploadSuccess }) =>
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [message, setMessage] = useState<string>('');
   const [imageUri, setImageUri] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (error) {
@@ -88,17 +90,37 @@ const ProfileImageUpload: FC<ProfileImageUploadProps> = ({ onUploadSuccess }) =>
     }
   };
 
+  const handleImageClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload<i className="fa-regular fa-file-arrow-up"></i></button>
+    <div className={styles.formContainer}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <input
+          className={styles.input}
+          type="file"
+          onChange={handleFileChange}
+          ref={fileInputRef}
+          style={{ display: 'none' }}
+        />
+        <img
+          src="/images/profilebutton.svg"
+          alt="Upload"
+          className={styles.uploadImage}
+          onClick={handleImageClick}
+        />
+        <button className={styles.button} type="submit">
+          Upload <i className="fa-regular fa-file-arrow-up"></i>
+        </button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className={styles.message}>{message}</p>}
     </div>
   );
 };

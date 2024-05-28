@@ -10,13 +10,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-top: 1rem;
   }
   .navImage {
-      padding-top: 1.5rem; 
-      margin-right: 1rem; 
-      max-width: 10rem;
-      max-height: 10rem; 
+    position: relative;
+    padding-top: 1.5rem; 
+    margin-right: 1rem; 
+    max-width: 10rem;
+    max-height: 10rem; 
       border-radius: 50%;   
   }
 
