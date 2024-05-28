@@ -123,6 +123,7 @@ const Courses: React.FC = () => {
                 
                 <img className={styles.image} src={course.imageUri} alt={course.title} />
 
+                <Link href="/adminupdatecourse" className={styles.icon}><i className={`fa-regular fa-bookmark ${styles.bookmark}`}></i></Link>
                 <div className={styles.info}>
                   <h3 className='h3'>{course.title}</h3>
                   <p className={`author ${styles.author}`}>By {course.authors.map(author => author.name).join(', ')}</p>

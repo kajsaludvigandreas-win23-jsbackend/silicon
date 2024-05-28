@@ -98,6 +98,10 @@
     color: white;
 }
 
+.bookmark {
+    margin: 7px 10px;
+  }
+
 .image {
     height: auto;
     width: 100%;

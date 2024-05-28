@@ -86,21 +86,22 @@ export default function accountMessages() {
     return (
 
         <section id="messages">
-        <>
-        {!connection        
-            ? <WaitingRoom joinChatRoom={joinChatRoom}/>
-            : <ChatRoom 
-                messages={messages}
-                sendMessage={sendMessage} 
-                currentUserName={currentUserName.current}
-                typingUsers={typingUsers}
-                startTyping={startTyping}
-                stopTyping={stopTyping}
-            />
-        }
-        </>
             <div className={`container ${styles.container}`}>
                 <AccountNav/>
+
+                <>
+                  {!connection        
+                      ? <WaitingRoom joinChatRoom={joinChatRoom}/>
+                      : <ChatRoom 
+                          messages={messages}
+                          sendMessage={sendMessage} 
+                          currentUserName={currentUserName.current}
+                          typingUsers={typingUsers}
+                          startTyping={startTyping}
+                          stopTyping={stopTyping}
+                      />
+                  }
+                </>
             </div>
         </section>      
     )};

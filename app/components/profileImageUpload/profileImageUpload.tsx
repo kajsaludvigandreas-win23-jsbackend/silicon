@@ -103,19 +103,21 @@ const ProfileImageUpload: FC<ProfileImageUploadProps> = ({ onUploadSuccess }) =>
   return (
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <input
-          className={styles.input}
-          type="file"
-          onChange={handleFileChange}
-          ref={fileInputRef}
-          style={{ display: 'none' }}
-        />
-        <img
-          src="/images/profilebutton.svg"
-          alt="Upload"
-          className={styles.uploadImage}
-          onClick={handleImageClick}
-        />
+        <div>
+          <input
+            className={styles.input}
+            type="file"
+            onChange={handleFileChange}
+            ref={fileInputRef}
+            style={{ display: 'none' }}
+          />
+          <img
+            src="/images/profilebutton.svg"
+            alt="Upload"
+            className={styles.uploadImage}
+            onClick={handleImageClick}
+          />
+        </div>
         <button className={styles.button} type="submit">
           Upload <i className="fa-regular fa-file-arrow-up"></i>
         </button>
