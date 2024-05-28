@@ -186,8 +186,8 @@ const SingleCourse: React.FC = () => {
 
                 <div className={styles.courseDescription}>
                     <div className={styles.contentLeft}>
-                        <h1>Course Description</h1>
-                        <p className={styles.description}>{course.content.description}</p>
+                        <h1 className='h1'>Course Description</h1>
+                        <p className={`p ${styles.description}`}>{course.content.description}</p>
                         <h3>What you'll learn</h3>
 
                         <div className={styles.points}>
@@ -202,7 +202,7 @@ const SingleCourse: React.FC = () => {
 
                     <div className={styles.contentRight}>
                         <div className={styles.box}>
-                            <h4>This course includes:</h4>
+                            <h4 className='h4'>This course includes:</h4>
 
                             <div className={styles.content}>
                                 <div className={styles.contentInfo}>
@@ -241,7 +241,7 @@ const SingleCourse: React.FC = () => {
                 </div>
 
                 <div className={styles.programDetails}>
-                    <h1>Program Details</h1>
+                    <h1 className='h1'>Program Details</h1>
                     <div className={styles.body}>
                         <div className={styles.circles}>
                             {course.content.programDetails.map((detail, index) => (
