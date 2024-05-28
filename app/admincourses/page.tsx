@@ -111,7 +111,7 @@ const AdminCourses: React.FC = () => {
                         <Link className={styles.link} href={`/singlecourse?id=${course.id}`}>
                             {course.isBestSeller && <img className={styles.bestseller} src="/images/bestseller.svg" alt="Bestseller" />}
                             
-                            <Link href="/updatecourse" className={styles.icon}><i className={`fa-regular fa-pen ${styles.pen}`}></i></Link>
+                            <Link href="/adminupdatecourse" className={styles.icon}><i className={`fa-regular fa-pen ${styles.pen}`}></i></Link>
                             <img className={styles.image} src={course.imageUri} alt={course.title} />
 
                             <div className={styles.info}>

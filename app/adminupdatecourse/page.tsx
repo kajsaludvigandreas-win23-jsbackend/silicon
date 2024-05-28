@@ -7,7 +7,7 @@ import AdminNav from "../components/adminSideNav/adminSideNav";
 import CourseImageUpload from '../components/courseImageUpload/courseImageUpload';
 import { CourseCreateRequest } from '../models/CourseCreateRequest'; // Justera sökvägen efter din mappstruktur
 
-export default function UpdateCourse() {
+export default function AdminUpdateCourse() {
     const [imageUri, setImageUri] = useState<string>('');
     const [formData, setFormData] = useState<CourseCreateRequest>({
         imageUri: '',
