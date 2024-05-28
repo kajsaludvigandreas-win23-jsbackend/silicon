@@ -35,7 +35,7 @@ export default function AccountNotification() {
         localStorage.setItem('isSubscribed', isSubscribed.toString());
     }, [isSubscribed]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
     
         if (typeof email !== 'string' || email === '') {
@@ -73,7 +73,7 @@ export default function AccountNotification() {
         }
     };
 
-    const handleUnsubscribe = async (e) => {
+    const handleUnsubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
     
         if (typeof email !== 'string' || email === '') {
