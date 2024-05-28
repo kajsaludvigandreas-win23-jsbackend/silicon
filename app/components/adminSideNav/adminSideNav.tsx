@@ -4,10 +4,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from './adminSideNav.module.css';
 import { useUser } from '@/app/context/UserContext';
+import { useRouter } from 'next/navigation';
+import signOutAdminAction from '@/app/signOutAdminAction';
+
 
 export default function AdminNav() {
     const { user, loading, error } = useUser();
     const [email, setEmail] = useState('');
+    const router = useRouter();
 
     useEffect(() => {
         const getUserEmailFromCookie = () => {
@@ -22,6 +26,15 @@ export default function AdminNav() {
 
         getUserEmailFromCookie();
     }, []);
+
+    const handleLogout = async () => {
+        const result = await signOutAdminAction();
+        if (result.success) {
+            router.push('/accountdetails');
+        } else {
+            console.error('Logout failed:', result.error);
+        }
+    };
 
     if (loading) {
         return <div>Loading...</div>;
@@ -45,7 +58,7 @@ export default function AdminNav() {
                 <Link href="/admincourses" className={`btn-theme btn ${styles.sideNavLinks}`}><i className="fa-regular fa-newspaper btn-icon"></i>Courses</Link>
                 <Link href="/adminuserroles" className={`btn-theme btn ${styles.sideNavLinks}`}><i className="fa-regular fa-user btn-icon"></i>Users</Link>
                 <Link href="/adminsubscribers" className={`btn-theme btn ${styles.sideNavLinks}`}><i className="fa-regular fa-envelope btn-icon"></i>Subscribers</Link>
-                <Link className={`btn-theme btn ${styles.sideNavLinks}`} href="/logoutadmin"><i className="fa-regular fa-lock-open btn-icon"></i>Sign Out Admin</Link>
+                <button onClick={handleLogout} className={`btn-theme btn ${styles.sideNavLinks}`}><i className="fa-regular fa-lock-open btn-icon"></i>Sign Out Admin</button>
             </div>
         </div>
     );

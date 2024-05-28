@@ -1,8 +1,23 @@
-import Link from 'next/link';
+'use client';
+
 import styles from './adminPortal.module.css';
 import AdminNav from '../components/adminSideNav/adminSideNav';
+import { useRouter } from 'next/navigation';
+import signOutAdminAction from '../signOutAdminAction';
 
 export default function AdminPortal() {
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        const result = await signOutAdminAction();
+        if (result.success) {
+            router.push('/accountdetails');
+        } else {
+            console.error('Logout failed:', result.error);
+        }
+    };
+
+    
     return (
         <section id="admin">
             <div className={`container ${styles.container}`}>
@@ -10,7 +25,7 @@ export default function AdminPortal() {
                 <div className={styles.adminDetails}>
                     <div className={styles.titlebutton}>
                         <h1>Welcome to the Admin Portal!</h1>
-                        <Link className="btn btn-theme" href="/signoutadmin"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</Link>
+                        <button onClick={handleLogout} className="btn btn-theme"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</button>
                     </div>
 
                     <div className={styles.content}>
