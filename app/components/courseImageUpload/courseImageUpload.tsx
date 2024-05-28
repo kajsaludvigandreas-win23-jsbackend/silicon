@@ -1,10 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FC } from 'react';
 
-const UploadFile = () => {
+interface CourseImageUploadProps {
+  onUploadSuccess: (newImageUri: string) => void;
+}
+
+const CourseImageUpload: FC<CourseImageUploadProps> = ({ onUploadSuccess }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [containerName, setContainerName] = useState<string>('profileImages');
   const [message, setMessage] = useState<string>('');
   const [imageUri, setImageUri] = useState<string | null>(null);
 
@@ -14,12 +17,7 @@ const UploadFile = () => {
     }
   };
 
-  const handleContainerChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setContainerName(event.target.value);
-  };
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
     if (!selectedFile) {
       setMessage('Please select a file to upload.');
       return;
@@ -27,10 +25,10 @@ const UploadFile = () => {
 
     const formData = new FormData();
     formData.append('file', selectedFile);
-    formData.append('containerName', containerName);
+    formData.append('containerName', 'coursemges');
 
     try {
-      const response = await fetch('https://fileprovide-lak.azurewebsites.net/api/UpLoad?code=rT2n2UuEvEgJElVHAS9HeUn8xn4H8d3vc-2-5tXvvxhPAzFu6JZ2UA%3D%3D&containerName=profiles', {
+      const response = await fetch('https://fileprovide-lak.azurewebsites.net/api/UpLoad?code=rT2n2UuEvEgJElVHAS9HeUn8xn4H8d3vc-2-5tXvvxhPAzFu6JZ2UA%3D%3D&containerName=coursemges', {
         method: 'POST',
         body: formData,
       });
@@ -39,6 +37,7 @@ const UploadFile = () => {
         const result = await response.json();
         setMessage(`File uploaded successfully: ${result.filePath}`);
         setImageUri(result.ImageUri); // Sätter imageUri som returneras från API:n
+        onUploadSuccess(result.filePath); // Anropa callback-funktionen
       } else {
         setMessage('File upload failed.');
       }
@@ -53,15 +52,9 @@ const UploadFile = () => {
 
   return (
     <div>
-      <h1>Upload File</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} />
-        <select value={containerName} onChange={handleContainerChange}>
-          <option value="profileImages">Profile Images</option>
-          <option value="courseImages">Course Images</option>
-        </select>
-        <button type="submit">Upload</button>
-      </form>
+      <h1>Upload Course Image</h1>
+      <input type="file" onChange={handleFileChange} />
+      <button type="button" onClick={handleSubmit}>Upload</button>
       {message && <p>{message}</p>}
       {imageUri && (
         <div>
@@ -73,4 +66,4 @@ const UploadFile = () => {
   );
 };
 
-export default UploadFile;
+export default CourseImageUpload;

@@ -1,8 +1,19 @@
+"use client"
+
+import { useState } from 'react';
 import styles from './adminAddCourse.module.css';
 import Link from "next/link";
 import AdminNav from "../components/adminSideNav/adminSideNav";
+import CourseImageUpload from '../components/courseImageUpload/courseImageUpload';
 
 export default function AdminAddCourse() {
+    const [imageUri, setImageUri] = useState<string>('');
+
+    const handleUploadSuccess = (newImageUri: string) => {
+        setImageUri(newImageUri);
+        console.log(newImageUri)
+    };
+
     return (
         <section id="adminAddCourse">
             <div className={`container ${styles.container}`}>
@@ -12,7 +23,7 @@ export default function AdminAddCourse() {
                         <h1>Add New Course</h1>
                         <Link className="btn btn-theme" href="/logoutadmin"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</Link>
                     </div>
-                    
+                    <CourseImageUpload onUploadSuccess={handleUploadSuccess} />
                     <form className={styles.basic} action='/addcourse' method='post'>
                         <div className={styles.basicContent}>
                             <div className={`${styles.basicTitle} ${styles.basicGroup}`}>
@@ -58,6 +69,8 @@ export default function AdminAddCourse() {
                                     id="ImageUri"
                                     name="ImageUri"
                                     placeholder="Enter the image uri"
+                                    defaultValue={imageUri} // Use defaultValue instead of value
+                                    readOnly // Make the field read-only if it should only be filled by the upload
                                 />
                             </div>
 
@@ -166,12 +179,12 @@ export default function AdminAddCourse() {
                         </div>
 
                         <div className={styles.basicButtons}>
-                                <button className="btn-gray btn" type="reset">Cancel</button>
-                                <button className="btn-theme btn" type="submit">Add Course</button>
+                            <button className="btn-gray btn" type="reset">Cancel</button>
+                            <button className="btn-theme btn" type="submit">Add Course</button>
                         </div>
                     </form>
-                    
                 </div>
             </div>      
         </section>      
-    )};
+    );
+}
