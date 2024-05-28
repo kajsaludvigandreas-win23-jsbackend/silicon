@@ -38,14 +38,18 @@ export default function AccountNotification() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
+    
         // Kontrollera att email är en sträng och inte falsk
         if (typeof email !== 'string' || email === '') {
             alert('Invalid email address.');
             return;
         }
-
+    
         try {
+            // Spara prenumerationsstatus
+            setIsSubscribed(true); // Uppdatera lokalt tillstånd
+            localStorage.setItem('isSubscribed', 'true'); // Spara i localStorage
+    
             const response = await fetch('https://subscriptionprovider-lak.azurewebsites.net/api/Subscribe?code=MFvKPp3nEay7uymmPV2T1Qn_a4UEgo_AJo_92icyNvNZAzFufhBtAQ%3D%3D', {
                 method: 'POST',
                 headers: {
@@ -53,20 +57,58 @@ export default function AccountNotification() {
                 },
                 body: JSON.stringify({
                     email: email,
-                    isSubscribed: isSubscribed
+                    isSubscribed: true // Ange prenumerationsstatus till true
                 })
             });
-
+    
             if (!response.ok) {
                 const errorData = await response.json();
                 console.error('Server responded with:', errorData);
                 throw new Error(errorData.message || 'Failed to save subscription status');
             }
-
+    
             alert('Subscription status updated successfully');
         } catch (error) {
             console.error('Error updating subscription status:', error);
+            // Återställ prenumerationsstatus om det uppstår ett fel
+            setIsSubscribed(false); // Uppdatera lokalt tillstånd
+            localStorage.setItem('isSubscribed', 'false'); // Spara i localStorage
             alert('Failed to update subscription status');
+        }
+    };
+
+    const handleUnsubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+    
+        // Kontrollera att email är en sträng och inte falsk
+        if (typeof email !== 'string' || email === '') {
+            alert('Invalid email address.');
+            return;
+        }
+    
+        try {
+            const response = await fetch('https://subscriptionprovider-lak.azurewebsites.net/api/Unsubscribe?code=yMB-8QPnL7kZt92TNWNE55Dqj9TyJh48ajmAvbfUr8sAAzFuq67fdQ%3D%3D', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email
+                })
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Server responded with:', errorData);
+                throw new Error(errorData.message || 'Failed to unsubscribe');
+            }
+    
+            setIsSubscribed(false); // Uppdatera lokalt tillstånd
+            localStorage.setItem('isSubscribed', 'false'); // Spara i localStorage
+            alert('Unsubscribed successfully');
+        } catch (error) {
+            console.error('Error unsubscribing:', error);
+            alert('Failed to unsubscribe');
         }
     };
 
@@ -101,8 +143,8 @@ export default function AccountNotification() {
                         </div>    
                         
                         <div className={styles.notificationsButtons}>
-                            <button className="btn-gray btn" type="reset">Cancel</button>
-                            <button className="btn-theme btn" type="submit">Save Changes</button>
+                            <button className="btn-theme btn" type="submit" onClick={handleSubmit}>Subscribe</button>
+                            <button className="btn-theme btn" type="button" onClick={handleUnsubscribe}>Unsubscribe</button>
                         </div>
                     </form>
                 </div>
