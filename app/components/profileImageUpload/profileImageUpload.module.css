@@ -1,0 +1,10 @@
+button{
+    border-radius: 8px;
+    background-color: beige;
+}
+
+.fa-file-arrow-up{
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-theme);
+}

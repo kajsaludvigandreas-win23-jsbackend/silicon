@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
+import { UserProvider } from "./context/UserContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,11 +23,13 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://kit.fontawesome.com/41c8b474e2.css" crossOrigin="anonymous" />      
       </head>
       <body>
+        <UserProvider>
       <div className="wrapper">
         <Header />
         {children}
         <Footer />
       </div>
+      </UserProvider>
       </body>
     </html>
   );
