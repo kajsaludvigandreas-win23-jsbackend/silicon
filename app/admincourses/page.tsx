@@ -1,4 +1,4 @@
-'use client'; 
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import styles from './adminCourses.module.css';
@@ -18,7 +18,7 @@ interface Price {
 interface Course {
   id: string;
   isBestSeller: boolean;
-  imageUri : string;
+  imageUri: string;
   title: string;
   authors: Author[];
   prices: Price;
@@ -98,54 +98,44 @@ const AdminCourses: React.FC = () => {
   return (
     <section id="adminCourses">
       <div className={`container ${styles.container}`}>
-            <AdminNav/>
-            <div className={styles.adminCoursesDetails}>
-                <div className={styles.titlebutton}>
-                    <h1>Courses</h1>
-                    <Link className="btn btn-theme" href="/adminaddcourse"><i className="fa-regular fa-plus btn-icon"></i>Add New Course</Link>
-                </div>
+        <AdminNav />
+        <div className={styles.adminCoursesDetails}>
+          <div className={styles.titlebutton}>
+            <h1>Courses</h1>
+            <Link className="btn btn-theme" href="/adminaddcourse"><i className="fa-regular fa-plus btn-icon"></i>Add New Course</Link>
+          </div>
 
-                <div className={styles.content}>
-                    {courses.map((course) => (
-                        <div key={course.id} className={styles.box}>
-                        <Link className={styles.link} href={`/singlecourse?id=${course.id}`}>
-                            {course.isBestSeller && <img className={styles.bestseller} src="/images/bestseller.svg" alt="Bestseller" />}
-                            
-                            <Link href="/adminupdatecourse" className={styles.icon}><i className={`fa-regular fa-pen ${styles.pen}`}></i></Link>
-                            <img className={styles.image} src={course.imageUri} alt={course.title} />
-
-                            <div className={styles.info}>
-                            <h3 className='h3'>{course.title}</h3>
-                            <p className={`author ${styles.author}`}>By {course.authors.map(author => author.name).join(', ')}</p>
-
-                            <div className={styles.priceDiscount}>
-                                {course.prices.discount > 0 ? (
-                                <>
-                                    <p className={styles.red}>${(course.prices.price - course.prices.discount).toFixed(2)}</p>
-                                    <p className={styles.gray}>${course.prices.price.toFixed(2)}</p>
-                                </>
-                                )
-                                :
-                                (
-                                    <p className={styles.price}>${course.prices.price.toFixed(2)}</p>   
-                                )
-                                }
-
-                                
-                            </div>
-
-                            <div className={styles.line}></div>
-
-                            <div className={styles.infoUnder}>
-                                <p className={`p ${styles.p}`}><i className="fa-regular fa-clock icon i"></i> {course.hours}</p>
-                                <p className={`p ${styles.p}`}><i className="fa-regular fa-thumbs-up i"></i> {course.likesInPercent} ({course.likes})</p>
-                            </div>
-                            </div>
-                        </Link>
-                        </div>
-                    ))}
-                </div>
-            </div>    
+          <div className={styles.content}>
+            {courses.map((course) => (
+              <div key={course.id} className={styles.box}>
+                <Link className={styles.link} href={`/singlecourse?id=${course.id}`}>
+                  {course.isBestSeller && <img className={styles.bestseller} src="/images/bestseller.svg" alt="Bestseller" />}
+                  <img className={styles.image} src={course.imageUri} alt={course.title} />
+                  <div className={styles.info}>
+                    <h3 className='h3'>{course.title}</h3>
+                    <p className={`author ${styles.author}`}>By {course.authors.map(author => author.name).join(', ')}</p>
+                    <div className={styles.priceDiscount}>
+                      {course.prices.discount > 0 ? (
+                        <>
+                          <p className={styles.red}>${(course.prices.price - course.prices.discount).toFixed(2)}</p>
+                          <p className={styles.gray}>${course.prices.price.toFixed(2)}</p>
+                        </>
+                      ) : (
+                        <p className={styles.price}>${course.prices.price.toFixed(2)}</p>
+                      )}
+                    </div>
+                    <div className={styles.line}></div>
+                    <div className={styles.infoUnder}>
+                      <p className={`p ${styles.p}`}><i className="fa-regular fa-clock icon i"></i> {course.hours}</p>
+                      <p className={`p ${styles.p}`}><i className="fa-regular fa-thumbs-up i"></i> {course.likesInPercent} ({course.likes})</p>
+                    </div>
+                  </div>
+                </Link>
+                <Link href={`/adminupdatecourse?id=${course.id}`} className={styles.icon}><i className={`fa-regular fa-pen ${styles.pen}`}></i></Link>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

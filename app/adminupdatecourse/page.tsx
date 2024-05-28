@@ -1,15 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './updateCourse.module.css';
 import Link from "next/link";
 import AdminNav from "../components/adminSideNav/adminSideNav";
 import CourseImageUpload from '../components/courseImageUpload/courseImageUpload';
-import { CourseCreateRequest } from '../models/CourseCreateRequest'; // Justera sökvägen efter din mappstruktur
+import { CourseUpdateRequest } from '../models/CourseUpdateRequest'; // Justera sökvägen efter din mappstruktur
+import { useFetchCourse } from '../hooks/useFetchCourse'; // Justera sökvägen efter din mappstruktur
 
 export default function AdminUpdateCourse() {
+    const searchParams = useSearchParams();
+    const courseId = searchParams.get('id') || '';
+    const { course, loading, error } = useFetchCourse(courseId);
     const [imageUri, setImageUri] = useState<string>('');
-    const [formData, setFormData] = useState<CourseCreateRequest>({
+    const [formData, setFormData] = useState<CourseUpdateRequest>({
+        id: courseId,
         imageUri: '',
         imageHeaderUri: '',
         isBestSeller: false,
@@ -27,6 +33,36 @@ export default function AdminUpdateCourse() {
         content: { description: '', includes: [], programDetails: [{ id: 0, title: '', description: '' }] }
     });
 
+    useEffect(() => {
+        if (course) {
+            setFormData({
+                id: course.id,
+                imageUri: course.imageUri,
+                imageHeaderUri: course.imageHeaderUri,
+                isBestSeller: course.isBestSeller,
+                isDigital: course.isDigital,
+                categories: course.categories,
+                title: course.title,
+                ingress: course.ingress,
+                starRating: course.starRating,
+                reviews: course.reviews.toString(),
+                likesInPercent: course.likesInPercent,
+                likes: course.likes,
+                hours: course.hours,
+                authors: course.authors,
+                prices: course.prices,
+                content: {
+                    ...course.content,
+                    programDetails: course.content.programDetails.map(detail => ({
+                        ...detail,
+                        id: parseInt(detail.id, 10)
+                    }))
+                }
+            });
+            setImageUri(course.imageUri);
+        }
+    }, [course]);
+
     const handleUploadSuccess = (newImageUri: string) => {
         setImageUri(newImageUri);
         setFormData({ ...formData, imageUri: newImageUri });
@@ -43,7 +79,6 @@ export default function AdminUpdateCourse() {
                 [name]: checked
             }));
         } else if (name.includes('.')) {
-            // Hantera nested fält
             const keys = name.split('.');
             setFormData(prevFormData => {
                 const updatedFormData = { ...prevFormData };
@@ -59,7 +94,6 @@ export default function AdminUpdateCourse() {
                 return updatedFormData;
             });
         } else if (name === 'categories') {
-            // Hantera kategorier som en array
             setFormData(prevFormData => ({
                 ...prevFormData,
                 categories: value.split(',').map(category => category.trim())
@@ -76,8 +110,8 @@ export default function AdminUpdateCourse() {
         e.preventDefault();
 
         const mutation = `
-            mutation ($input: CourseCreateRequestInput!) {
-                createCourse(input: $input) {
+            mutation ($input: CourseUpdateRequestInput!) {
+                updateCourse(input: $input) {
                     id
                     title
                 }
@@ -86,6 +120,7 @@ export default function AdminUpdateCourse() {
 
         const variables = {
             input: {
+                id: formData.id,
                 imageUri: formData.imageUri,
                 imageHeaderUri: formData.imageHeaderUri,
                 isBestSeller: formData.isBestSeller,
@@ -126,21 +161,23 @@ export default function AdminUpdateCourse() {
 
         if (response.ok) {
             const result = await response.json();
-            console.log("Course added successfully", result);
+            console.log("Course updated successfully", result);
         } else {
             const error = await response.text();
-            console.error("Error adding course", error);
+            console.error("Error updating course", error);
         }
     };
 
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
     return (
-        <section id="adminAddCourse">
+        <section id="adminUpdateCourse">
             <div className={`container ${styles.container}`}>
                 <AdminNav />
                 <div className={styles.addCourseDetails}>
                     <div className={styles.titlebutton}>
                         <h1>Update Course</h1>
-                        
                         <form method='post'>
                             <button className="btn btn-dangerWhite"><i className="fa-regular fa-trash btn-icon"></i>Delete course</button>
                         </form>
@@ -232,7 +269,7 @@ export default function AdminUpdateCourse() {
                                     id="ImageUri"
                                     name="imageUri"
                                     placeholder="Enter the image uri"
-                                    defaultValue={imageUri}
+                                    value={imageUri}
                                     readOnly
                                 />
                             </div>
@@ -369,7 +406,7 @@ export default function AdminUpdateCourse() {
 
                         <div className={styles.basicButtons}>
                             <button className="btn-gray btn" type="reset">Cancel</button>
-                            <button className="btn-theme btn" type="submit">Add Course</button>
+                            <button className="btn-theme btn" type="submit">Update Course</button>
                         </div>
                     </form>
                 </div>
