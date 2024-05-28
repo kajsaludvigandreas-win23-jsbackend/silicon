@@ -9,7 +9,6 @@ import ToggleSwitchSubscribe from '../components/toggleSwitchSubscribe/toggleswi
 export default function AccountNotification() {
     const [email, setEmail] = useState('');
     const [isSubscribed, setIsSubscribed] = useState(() => {
-        
         const saved = localStorage.getItem('isSubscribed');
         return saved === 'true';
     });
@@ -36,19 +35,17 @@ export default function AccountNotification() {
         localStorage.setItem('isSubscribed', isSubscribed.toString());
     }, [isSubscribed]);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
     
-        // Kontrollera att email är en sträng och inte falsk
         if (typeof email !== 'string' || email === '') {
             alert('Invalid email address.');
             return;
         }
     
         try {
-            // Spara prenumerationsstatus
-            setIsSubscribed(true); // Uppdatera lokalt tillstånd
-            localStorage.setItem('isSubscribed', 'true'); // Spara i localStorage
+            setIsSubscribed(true);
+            localStorage.setItem('isSubscribed', 'true');
     
             const response = await fetch('https://subscriptionprovider-lak.azurewebsites.net/api/Subscribe?code=MFvKPp3nEay7uymmPV2T1Qn_a4UEgo_AJo_92icyNvNZAzFufhBtAQ%3D%3D', {
                 method: 'POST',
@@ -57,7 +54,7 @@ export default function AccountNotification() {
                 },
                 body: JSON.stringify({
                     email: email,
-                    isSubscribed: true // Ange prenumerationsstatus till true
+                    isSubscribed: true
                 })
             });
     
@@ -70,17 +67,15 @@ export default function AccountNotification() {
             alert('Subscription status updated successfully');
         } catch (error) {
             console.error('Error updating subscription status:', error);
-            // Återställ prenumerationsstatus om det uppstår ett fel
-            setIsSubscribed(false); // Uppdatera lokalt tillstånd
-            localStorage.setItem('isSubscribed', 'false'); // Spara i localStorage
+            setIsSubscribed(false);
+            localStorage.setItem('isSubscribed', 'false');
             alert('Failed to update subscription status');
         }
     };
 
-    const handleUnsubscribe = async (e: React.FormEvent) => {
+    const handleUnsubscribe = async (e) => {
         e.preventDefault();
     
-        // Kontrollera att email är en sträng och inte falsk
         if (typeof email !== 'string' || email === '') {
             alert('Invalid email address.');
             return;
@@ -103,8 +98,8 @@ export default function AccountNotification() {
                 throw new Error(errorData.message || 'Failed to unsubscribe');
             }
     
-            setIsSubscribed(false); // Uppdatera lokalt tillstånd
-            localStorage.setItem('isSubscribed', 'false'); // Spara i localStorage
+            setIsSubscribed(false);
+            localStorage.setItem('isSubscribed', 'false');
             alert('Unsubscribed successfully');
         } catch (error) {
             console.error('Error unsubscribing:', error);
@@ -152,4 +147,3 @@ export default function AccountNotification() {
         </section>
     );
 }
-
