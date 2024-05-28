@@ -4,9 +4,17 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './AccountDetails.module.css';
 import AccountNav from '../components/accountSideNav/accountSideNav';
+import { useUser } from '../context/UserContext';
 
 export default function AccountDetails() {
     const [email, setEmail] = useState('');
+    const { user, loading, error } = useUser();
+
+    useEffect(() => {
+        if (user && user.firstName) {
+            (user.lastName);
+        }
+    }, [user]);
 
     useEffect(() => {
         const getUserEmailFromCookie = () => {
@@ -38,12 +46,12 @@ export default function AccountDetails() {
                         <div className={styles.basicContent}>
                             <div className={`${styles.basicFirstName} ${styles.basicGroup}`}>
                                 <label htmlFor="firstName">First Name</label>
-                                <input className="input" type="text" id="firstName" placeholder='Enter your first name' />
+                                <input className="input" type="text" id="firstName" value={user?.firstName} placeholder='Enter your first name' />
                             </div>
 
                             <div className={`${styles.basicLastName} ${styles.basicGroup}`}>
                                 <label htmlFor="lastName">Last Name</label>
-                                <input className="input" type="text" id="lastName" placeholder='Enter your last name' />
+                                <input className="input" type="text" id="lastName" value={user?.lastName} placeholder='Enter your last name' />
                             </div>
 
                             <div className={`${styles.basicEmail} ${styles.basicGroup}`}>
