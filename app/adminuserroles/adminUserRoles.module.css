@@ -26,7 +26,7 @@
     padding-bottom: 2rem;
   }
 
-  .user {
+  .form {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,6 +36,10 @@
   .name {
     display: flex;
     gap: 0.3rem;
+  }
+
+  .input {
+    border: none;
   }
 
   .roleButtons {

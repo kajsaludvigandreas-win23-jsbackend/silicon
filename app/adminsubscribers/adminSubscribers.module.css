@@ -26,11 +26,15 @@
     padding-bottom: 2rem;
   }
 
-  .subscriber {
+  .form {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 2rem;
+  }
+
+  .email input {
+    border: none;
   }
 
   .buttons {

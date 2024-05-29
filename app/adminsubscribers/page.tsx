@@ -1,8 +1,26 @@
+'use client';
+
 import Link from 'next/link';
 import AdminNav from '../components/adminSideNav/adminSideNav';
 import styles from './adminSubscribers.module.css';
+import { useState } from 'react';
 
 export default function AdminSubscribers() {
+
+    const [isEditable, setIsEditable] = useState(false);
+    const [email, setEmail] = useState('johndoe@domain.com');
+
+    const handleUpdateClick = () => {
+        setIsEditable(true);
+    };
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value);
+    };
+
+    const handleSaveClick = () => {
+        setIsEditable(false);
+    };
     return (
         <section id="adminSubscribers">
             <div className={`container ${styles.container}`}>
@@ -14,17 +32,41 @@ export default function AdminSubscribers() {
                     </div>
 
                     <div className={styles.subscriber}>
-                        <div className={styles.email}>
-                            <p className="email">johndoe@domain.com</p>
-                        </div>
+                        <form className={styles.form}>
+                            <div className={styles.email}>
+                                <input 
+                                    className="email" 
+                                    type="email" 
+                                    value={email} 
+                                    readOnly={!isEditable} 
+                                    onChange={handleChange} 
+                                />
+                            </div>
 
-                        <div>
-                            <form className={styles.buttons}>
-                                <button className="btn btn-update-delete"><i className="fa-regular fa-pen btn-icon"></i></button>
-                                <button className="btn btn-update-delete"><i className="fa-regular fa-trash btn-icon"></i></button>
-                            </form>
-                        </div>
-                    </div>          
+                            <div className={styles.buttons}>
+                                {isEditable ? (
+                                    <button 
+                                    type="button" 
+                                    className="btn btn-update-delete" 
+                                    onClick={handleSaveClick}
+                                    >
+                                    Save
+                                    </button>
+                                ) : (
+                                    <button 
+                                    type="button" 
+                                    className="btn btn-update-delete" 
+                                    onClick={handleUpdateClick}
+                                    >
+                                    <i className="fa-regular fa-pen btn-icon"></i>
+                                    </button>
+                                )}
+                                <button className="btn btn-update-delete">
+                                    <i className="fa-regular fa-trash btn-icon"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>        
                 </div>
             </div>      
         </section>      
