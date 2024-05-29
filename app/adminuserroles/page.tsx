@@ -11,7 +11,7 @@ export default function AdminUserRoles() {
     const [isEditable, setIsEditable] = useState(false);
     const [firstName, setFirstName] = useState('John');
     const [lastName, setLastName] = useState('Doe');
-    const [role, setRole] = useState('Select role');
+    const [role, setRole] = useState('');
 
     const router = useRouter();
 
@@ -79,15 +79,10 @@ export default function AdminUserRoles() {
 
                             <div className={styles.roleButtons}>
                                 <div className={styles.role}>
-                                    <select 
-                                    className="select" 
-                                    value={role} 
-                                    disabled={!isEditable} 
-                                    onChange={handleRoleChange}
-                                    >
-                                    <option>Select role</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="user">User</option>
+                                    <select className='input btn btn-gray'>
+                                        <option value="">Select role</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="user">User</option>
                                     </select>
                                 </div>
 
