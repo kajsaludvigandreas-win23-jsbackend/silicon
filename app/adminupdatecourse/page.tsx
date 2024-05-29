@@ -192,7 +192,7 @@ export default function AdminUpdateCourse() {
             if (response.ok) {
                 const result = await response.json();
                 console.log("Course deleted successfully", result);
-                router.push("/accountsavedcourses");
+                router.push("/admincourses");
             } else {
                 const error = await response.text();
                 console.error("Error deleting course", error);
