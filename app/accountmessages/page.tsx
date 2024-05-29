@@ -1,6 +1,6 @@
 'use client';
 
-import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { HubConnection, HubConnectionBuilder } from  '@microsoft/signalr'
 import AccountNav from '../components/accountSideNav/accountSideNav';
 import styles from './accountMessages.module.css';
 import { useRef, useState } from 'react';
