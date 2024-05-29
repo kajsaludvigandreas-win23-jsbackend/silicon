@@ -41,7 +41,7 @@ export default function accountMessages() {
     const joinChatRoom = async (userName: string, chatRoom: string) => {
       try {
         const hubConnection = new HubConnectionBuilder()
-        .withUrl("https://localhost:7184/chathub")
+        .withUrl("https://localhost:7184/accountmessages")
         .withAutomaticReconnect()
         .build();
 
