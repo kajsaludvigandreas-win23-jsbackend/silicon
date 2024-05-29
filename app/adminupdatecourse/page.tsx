@@ -6,8 +6,8 @@ import styles from './updateCourse.module.css';
 import Link from "next/link";
 import AdminNav from "../components/adminSideNav/adminSideNav";
 import CourseImageUpload from '../components/courseImageUpload/courseImageUpload';
-import { CourseUpdateRequest } from '../models/CourseUpdateRequest'; // Justera sökvägen efter din mappstruktur
-import { useFetchCourse } from '../hooks/useFetchCourse'; // Justera sökvägen efter din mappstruktur
+import { CourseUpdateRequest } from '../models/CourseUpdateRequest'; 
+import { useFetchCourse } from '../hooks/useFetchCourse'; 
 
 export default function AdminUpdateCourse() {
     const searchParams = useSearchParams();
@@ -32,6 +32,8 @@ export default function AdminUpdateCourse() {
         prices: { currency: '', price: 0, discount: 0 },
         content: { description: '', includes: [], programDetails: [{ id: 0, title: '', description: '' }] }
     });
+
+    const router = useRouter();
 
     useEffect(() => {
         if (course) {
@@ -168,6 +170,36 @@ export default function AdminUpdateCourse() {
         }
     };
 
+    
+
+        const handleDelete = async (e: React.FormEvent) => {
+            e.preventDefault();
+        
+            const mutation = `
+                mutation {
+                    deleteCourse(id: "${courseId}")
+                }
+            `;
+        
+            const response = await fetch('https://courseprovider-lak.azurewebsites.net/api/GraphQL?code=HmZBexEQKfIbFPqBV0zHpJEyxeaz4FT8twRto_LWBCckAzFuIhjUpw%3D%3D', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: mutation })
+            });
+        
+            if (response.ok) {
+                const result = await response.json();
+                console.log("Course deleted successfully", result);
+                router.push("/accountsavedcourses");
+            } else {
+                const error = await response.text();
+                console.error("Error deleting course", error);
+            }
+        };
+        
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
@@ -178,8 +210,8 @@ export default function AdminUpdateCourse() {
                 <div className={styles.addCourseDetails}>
                     <div className={styles.titlebutton}>
                         <h1>Update Course</h1>
-                        <form method='post'>
-                            <button className="btn btn-dangerWhite"><i className="fa-regular fa-trash btn-icon"></i>Delete course</button>
+                        <form method='post' onSubmit={handleDelete}>
+                            <button className="btn btn-dangerWhite" type="submit"><i className="fa-regular fa-trash btn-icon"></i>Delete course</button>
                         </form>
                     </div>
                     <CourseImageUpload onUploadSuccess={handleUploadSuccess} />
@@ -413,4 +445,5 @@ export default function AdminUpdateCourse() {
             </div>      
         </section>      
     );
-}
+    }
+
