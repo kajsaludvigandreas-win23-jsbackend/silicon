@@ -4,11 +4,24 @@ import Link from 'next/link';
 import AdminNav from '../components/adminSideNav/adminSideNav';
 import styles from './adminSubscribers.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import signOutAdminAction from '../signOutAdminAction';
 
 export default function AdminSubscribers() {
 
     const [isEditable, setIsEditable] = useState(false);
     const [email, setEmail] = useState('johndoe@domain.com');
+
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        const result = await signOutAdminAction();
+        if (result.success) {
+            router.push('/accountdetails');
+        } else {
+            console.error('Logout failed:', result.error);
+        }
+    };
 
     const handleUpdateClick = () => {
         setIsEditable(true);
@@ -21,6 +34,11 @@ export default function AdminSubscribers() {
     const handleSaveClick = () => {
         setIsEditable(false);
     };
+
+    const handleDeleteClick = () => {
+        setIsEditable(true);
+    }
+
     return (
         <section id="adminSubscribers">
             <div className={`container ${styles.container}`}>
@@ -28,7 +46,7 @@ export default function AdminSubscribers() {
                 <div className={styles.adminDetails}>
                     <div className={styles.titlebutton}>
                         <h1>Subscribers</h1>
-                        <Link className="btn btn-theme" href="/logoutadmin"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</Link>
+                        <button onClick={handleLogout} className="btn btn-theme"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</button>
                     </div>
 
                     <div className={styles.subscriber}>
@@ -61,7 +79,7 @@ export default function AdminSubscribers() {
                                     <i className="fa-regular fa-pen btn-icon"></i>
                                     </button>
                                 )}
-                                <button className="btn btn-update-delete">
+                                <button className="btn btn-update-delete" onClick={handleDeleteClick}>
                                     <i className="fa-regular fa-trash btn-icon"></i>
                                 </button>
                             </div>

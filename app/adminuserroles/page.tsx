@@ -4,12 +4,25 @@ import Link from 'next/link';
 import AdminNav from '../components/adminSideNav/adminSideNav';
 import styles from './adminUserRoles.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import signOutAdminAction from '../signOutAdminAction';
 
 export default function AdminUserRoles() {
     const [isEditable, setIsEditable] = useState(false);
     const [firstName, setFirstName] = useState('John');
     const [lastName, setLastName] = useState('Doe');
     const [role, setRole] = useState('Select role');
+
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        const result = await signOutAdminAction();
+        if (result.success) {
+            router.push('/accountdetails');
+        } else {
+            console.error('Logout failed:', result.error);
+        }
+    };
 
     const handleUpdateClick = () => {
         setIsEditable(true);
@@ -31,6 +44,10 @@ export default function AdminUserRoles() {
         setRole(event.target.value);
     };
 
+    const handleDeleteClick = () => {
+        setIsEditable(true);
+    }
+
     return (
         <section id="adminUserRoles">
             <div className={`container ${styles.container}`}>
@@ -38,7 +55,7 @@ export default function AdminUserRoles() {
                 <div className={styles.adminDetails}>
                     <div className={styles.titlebutton}>
                         <h1>Users</h1>
-                        <Link className="btn btn-theme" href="/adminaddnewuser"><i className="fa-regular fa-plus btn-icon"></i>Add New User</Link>
+                        <button onClick={handleLogout} className="btn btn-theme"><i className="fa-regular fa-lock-open btn-icon"></i>Admin</button>
                     </div>
 
                     <div className={styles.user}>
@@ -92,7 +109,7 @@ export default function AdminUserRoles() {
                                         <i className="fa-regular fa-pen btn-icon"></i>
                                     </button>
                                     )}
-                                    <button className="btn btn-update-delete">
+                                    <button className="btn btn-update-delete" onClick={handleDeleteClick}>
                                         <i className="fa-regular fa-trash btn-icon"></i>
                                     </button>
                                 </div>
