@@ -16,8 +16,7 @@ export default function AdminPortal() {
             console.error('Logout failed:', result.error);
         }
     };
-
-    
+ 
     return (
         <section id="admin">
             <div className={`container ${styles.container}`}>

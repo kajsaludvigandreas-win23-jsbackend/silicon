@@ -13,8 +13,6 @@ export default function ToggleSwitchSubscribe({ value, onChange }: ToggleSwitchS
         onChange(event.target.checked);
     };
 
-
-    
     return ( 
         <div className={styles.toggleSwitchSubscribe}>
             <input type="checkbox" id="switchSubscribe" className={styles.checkbox} checked={value} onChange={handleCheckboxChange} />

@@ -140,8 +140,6 @@ const Courses: React.FC = () => {
                         <p className={styles.price}>${course.prices.price.toFixed(2)}</p>   
                     )
                     }
-
-                    
                   </div>
 
                   <div className={styles.line}></div>

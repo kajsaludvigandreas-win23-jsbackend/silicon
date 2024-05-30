@@ -43,7 +43,6 @@ export default function AdminAddCourse() {
                 [name]: checked
             }));
         } else if (name.includes('.')) {
-            // Hantera nested fält
             const keys = name.split('.');
             setFormData(prevFormData => {
                 const updatedFormData = { ...prevFormData };
@@ -59,7 +58,6 @@ export default function AdminAddCourse() {
                 return updatedFormData;
             });
         } else if (name === 'categories') {
-            // Hantera kategorier som en array
             setFormData(prevFormData => ({
                 ...prevFormData,
                 categories: value.split(',').map(category => category.trim())

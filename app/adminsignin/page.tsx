@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import signInAdminAction from "../signInAdminAction";
 
 export default function AdminSignIn() {
-
   const [signInForm, setSignInForm] = useFormState(signInAdminAction, {success: false})
   const router = useRouter()
 
@@ -17,7 +16,6 @@ export default function AdminSignIn() {
     }
   }, [signInForm])
 
-  
     return (
       <section id="adminSignIn">
         {signInForm?.error && <div className="error">{signInForm?.error}</div>}

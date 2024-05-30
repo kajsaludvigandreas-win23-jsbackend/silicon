@@ -14,7 +14,6 @@ type props = {
   typingUsers: string[],
   startTyping: () => Promise<void>,
   stopTyping: () => Promise<void>
-
 }
 
 export const ChatRoom = ({messages, sendMessage, currentUserName, typingUsers, startTyping, stopTyping}: props) => {

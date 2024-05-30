@@ -6,8 +6,8 @@ import styles from './WaitingRoom.module.css';
 type props = {
   joinChatRoom: (userName: string, chatRoom: string) => Promise<void>
 }
-export const WaitingRoom = ({joinChatRoom}: props) => {
 
+export const WaitingRoom = ({joinChatRoom}: props) => {
   const [userName, setUserName] = useState<string>(``);
   const [chatRoom, setChatRoom] = useState<string>('standard');
 

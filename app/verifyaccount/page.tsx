@@ -41,7 +41,6 @@ export default function VerifyAccount() {
         {error && <div className="error">{error}</div>}
 
         <form onSubmit={handleSubmit} className={styles.verifyForm} noValidate>
-
           <div className={styles.verifyContent}>
             <h1 className={styles.title}>Verify your Account</h1>
 

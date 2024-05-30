@@ -5,7 +5,6 @@ import styles from './toggleSwitchDarkMode.module.css';
 
 export default function ToggleSwitchDarkMode() {  
     const [isDarkMode, setIsDarkMode] = useState(() => {
-        // Initialiserar isDarkMode från localStorage
         const savedMode = localStorage.getItem('isDarkMode');
         return savedMode === 'true';
     });
@@ -17,7 +16,6 @@ export default function ToggleSwitchDarkMode() {
         };
 
         applyTheme();
-        // Sparar isDarkMode till localStorage
         localStorage.setItem('isDarkMode', isDarkMode.toString());
     }, [isDarkMode]);
 

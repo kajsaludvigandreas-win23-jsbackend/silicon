@@ -168,9 +168,7 @@ export default function AdminUpdateCourse() {
             const error = await response.text();
             console.error("Error updating course", error);
         }
-    };
-
-    
+    };   
 
         const handleDelete = async (e: React.FormEvent) => {
             e.preventDefault();

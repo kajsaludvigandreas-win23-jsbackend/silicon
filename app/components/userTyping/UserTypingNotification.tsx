@@ -6,10 +6,6 @@ type props = {
   typingUsers: string[]
 }
 
-
-
-
-
 export default function UserTypingNotification({typingUsers}: props) {
   return (
     <div className="typing-indicator">

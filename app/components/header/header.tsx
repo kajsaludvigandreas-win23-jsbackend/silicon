@@ -20,7 +20,6 @@ export default function Header() {
         }
 
         <nav className={styles.navLinks}>
-
           {isSignedIn ? 
           (
             <>

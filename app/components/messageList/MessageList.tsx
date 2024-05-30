@@ -6,11 +6,9 @@ import { Message } from "@/app/accountmessages/page";
 type props = {
   messages: Message[],
   currentUserName: string
-
 }
 
 export default function MessageList({messages, currentUserName} : props){
-
   const messageEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

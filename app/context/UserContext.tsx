@@ -28,7 +28,6 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<UserAccount | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
- 
 
   useEffect(() => {
     const getUserEmailFromCookie = (): string | null => {

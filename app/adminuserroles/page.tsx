@@ -20,7 +20,6 @@ export default function AdminUserRoles() {
     const [editingUserId, setEditingUserId] = useState<number | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-
     const router = useRouter();
 
     useEffect(() => {

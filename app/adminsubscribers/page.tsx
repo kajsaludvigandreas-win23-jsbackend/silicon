@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 import signOutAdminAction from '../signOutAdminAction';
 
 export default function AdminSubscribers() {
-
     const [isEditable, setIsEditable] = useState(false);
     const [email, setEmail] = useState('johndoe@domain.com');
 
